@@ -55,6 +55,7 @@ def incoming(input_path: str) -> object:
             # Process the file
             data = file.read()
     """
+
     try:
         infile = open(input_path, 'r', encoding='Windows-1252') 
     except FileNotFoundError as incoming_error:
@@ -74,11 +75,12 @@ def get_source(line: str) -> str:
     'Source code: <code>' and extracts the Source code.
     
     Args:
-        line (str): A line of text potentially containing the source code.
+        line (str): A line of text potentially containing the Source code.
     
     Returns:
         str: The extracted source code if the pattern is found, otherwise None.
     """
+
     source_line = re.compile(r'(Source code:)(\s*)(.*)')
     source_search = source_line.search(line)
 
@@ -100,6 +102,7 @@ def get_nhgis(line: str) -> str:
     Returns:
         str: The extracted NHGIS code if the pattern is found, otherwise None.
     """
+
     nhgis_line = re.compile(r'(NHGIS code:)(\s*)(.*)')
     nhgis_search = nhgis_line.search(line)
 
@@ -117,13 +120,17 @@ def get_dict(input_path: str) -> Dict:
     
     Returns:
         dict: A dictionary where the keys are NHGIS codes and the values are Source codes.
-    The function reads the input file line by line, extracting NHGIS codes and Source codes
-    using the `get_source` and `get_nhgis` functions, respectively. If both codes are successfully
-    extracted from a line, they are added to the dictionary. The process continues until the end
-    of the file is reached.
+    
+    Summary:
+        The function reads the input file line by line, extracting NHGIS codes and Source codes
+        using the `get_source` and `get_nhgis` functions, respectively. If both codes are successfully
+        extracted from a line, they are added to the dictionary. The process continues until the end
+        of the file is reached.
     """
-    dict_cd = {}
-    source_code, nhgis_code = None, None
+
+    dict_cd: Dict = {}
+    source_code: str = None
+    nhgis_code: str = None
 
     with incoming(input_path) as infile:
         line = infile.readline()
@@ -159,8 +166,9 @@ def rename_df_columns(X_df: pd.DataFrame, dict_cd: Dict) -> tuple:
     Returns:
         tuple: A tuple containing the list of renamed columns and the DataFrame with renamed columns.
     """
-    column_list = list(X_df.columns)
-    rename_list = []
+    
+    column_list: List = list(X_df.columns)
+    rename_list: List = []
 
     for index, data in enumerate(column_list):
         for key, value in dict_cd.items():

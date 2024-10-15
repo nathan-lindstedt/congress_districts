@@ -1,5 +1,4 @@
 import os
-import shutil
 
 import numpy as np
 import pandas as pd
@@ -11,7 +10,26 @@ from sklearn.metrics import recall_score
 
 import xgboost
 
-def train(X_train, y_train, X_val, y_val):
+def train(X_train: pd.DataFrame, y_train: pd.Series, X_val: pd.DataFrame, y_val: pd.Series) -> xgboost.XGBClassifier:
+    """
+    Trains an XGBoost classifier on the provided training data and evaluates it on the validation data.
+    
+    Args:
+        X_train (pd.DataFrame): Training features.
+        y_train (pd.Series): Training labels.
+        X_val (pd.DataFrame): Validation features.
+        y_val (pd.Series): Validation labels.
+    
+    Returns:
+        xgboost.XGBClassifier: The trained XGBoost classifier model.
+    
+    Summary:
+        1. Prints the shapes of the training and validation datasets.
+        2. Initializes an XGBoost classifier with specified hyperparameters.
+        3. Trains the model on the training data and evaluates it on the validation data with early stopping.
+        4. Prints evaluation metrics (accuracy, precision, recall, AUC) for both the validation and training datasets.
+        5. Saves the trained model to a specified file path.
+    """
 
     print('Train features shape: {}'.format(X_train.shape))
     print('Train labels shape: {}'.format(y_train.shape))
