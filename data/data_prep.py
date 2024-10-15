@@ -33,6 +33,8 @@ context_fields: List = ['GISJOIN','YEAR','STUSAB',
                         'NAME_E','GEO_ID','TL_GEO_ID',
                         'NAME_M','AITSA']
 
+party_cols: List = ['REP', 'DEM']
+
 #%%
 # Data preparation functions
 @contextmanager
@@ -154,7 +156,7 @@ def get_dict(input_path: str) -> Dict:
     
     return dict_cd
 
-def rename_df_columns(X_df: pd.DataFrame, dict_cd: Dict) -> tuple:
+def rename_df_columns(df: pd.DataFrame, dict_cd: Dict) -> tuple:
     """
     Renames the columns of a DataFrame based on a provided dictionary of codes.
 
@@ -167,7 +169,7 @@ def rename_df_columns(X_df: pd.DataFrame, dict_cd: Dict) -> tuple:
         tuple: A tuple containing the list of renamed columns and the DataFrame with renamed columns.
     """
     
-    column_list: List = list(X_df.columns)
+    column_list: List = list(df.columns)
     rename_list: List = []
 
     for index, data in enumerate(column_list):
@@ -176,7 +178,132 @@ def rename_df_columns(X_df: pd.DataFrame, dict_cd: Dict) -> tuple:
                 column_list[index] = data.replace(key, value)
                 rename_list.append(column_list[index])
 
-    return rename_list, X_df.set_axis(column_list, axis=1).dropna(axis=1)
+    return rename_list, df.set_axis(column_list, axis=1).dropna(axis=1)
+
+def state_to_postal(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Converts a DataFrame of state names to their postal abbreviations.
+
+    This function takes a DataFrame containing state names and returns a new DataFrame 
+    with two columns: 'state' and 'state_po'. The 'state' column contains the full 
+    names of U.S. states, the District of Columbia, and U.S. territories, while the 
+    'state_po' column contains their corresponding postal abbreviations.
+
+    Args:
+        df (pd.DataFrame): A DataFrame containing state names.
+
+        pd.DataFrame: A DataFrame with columns 'state' and 'state_po' mapping state 
+                      names to their postal abbreviations.
+
+    Returns:
+        pd.DataFrame: A DataFrame with state abbreviations and state names.
+    """
+
+    us_state_to_abbrev: Dict = {"Alabama": "AL",
+                                "Alaska": "AK",
+                                "Arizona": "AZ",
+                                "Arkansas": "AR",
+                                "California": "CA",
+                                "Colorado": "CO",
+                                "Connecticut": "CT",
+                                "Delaware": "DE",
+                                "Florida": "FL",
+                                "Georgia": "GA",
+                                "Hawaii": "HI",
+                                "Idaho": "ID",
+                                "Illinois": "IL",
+                                "Indiana": "IN",
+                                "Iowa": "IA",
+                                "Kansas": "KS",
+                                "Kentucky": "KY",
+                                "Louisiana": "LA",
+                                "Maine": "ME",
+                                "Maryland": "MD",
+                                "Massachusetts": "MA",
+                                "Michigan": "MI",
+                                "Minnesota": "MN",
+                                "Mississippi": "MS",
+                                "Missouri": "MO",
+                                "Montana": "MT",
+                                "Nebraska": "NE",
+                                "Nevada": "NV",
+                                "New Hampshire": "NH",
+                                "New Jersey": "NJ",
+                                "New Mexico": "NM",
+                                "New York": "NY",
+                                "North Carolina": "NC",
+                                "North Dakota": "ND",
+                                "Ohio": "OH",
+                                "Oklahoma": "OK",
+                                "Oregon": "OR",
+                                "Pennsylvania": "PA",
+                                "Rhode Island": "RI",
+                                "South Carolina": "SC",
+                                "South Dakota": "SD",
+                                "Tennessee": "TN",
+                                "Texas": "TX",
+                                "Utah": "UT",
+                                "Vermont": "VT",
+                                "Virginia": "VA",
+                                "Washington": "WA",
+                                "West Virginia": "WV",
+                                "Wisconsin": "WI",
+                                "Wyoming": "WY",
+                                "District of Columbia": "DC",
+                                "American Samoa": "AS",
+                                "Guam": "GU",
+                                "Northern Mariana Islands": "MP",
+                                "Puerto Rico": "PR",
+                                "United States Minor Outlying Islands": "UM",
+                                "Virgin Islands, U.S.": "VI"}
+
+    return df['state'].map(us_state_to_abbrev)
+
+def preprocess_poll_data(poll: pd.DataFrame, cycle_year: int) -> pd.DataFrame:
+    """
+    Preprocesses poll data for a given election cycle year.
+
+    This function filters the poll data to include only the specified election cycle year
+    and the two major parties (Republican and Democrat). It then selects the most recent
+    poll for each state, district, and party combination. Finally, it calculates the average
+    polling percentage for each combination.
+
+    Args:
+        poll (pd.DataFrame): The DataFrame containing poll data. It must include the columns
+                             'cycle', 'party', 'end_date', 'state_po', 'district', and 'pct'.
+        cycle_year (int): The election cycle year to filter the poll data.
+
+    Returns:
+        pd.DataFrame: A DataFrame with the average polling percentages for each state, district,
+                      and party combination. The DataFrame includes the columns 'state_po',
+                      'district', 'party', and 'pct'.
+    """
+
+    poll_cycle = poll[(poll['cycle'] == cycle_year) & (poll['party'].isin(['REP', 'DEM']))]
+    poll_cycle = poll_cycle[poll_cycle['end_date'] == poll_cycle.groupby(['state_po', 'district', 'party'])['end_date'].transform('max')]
+    avg_poll = poll_cycle.groupby(['state_po', 'district', 'party'])['pct'].mean().reset_index()
+
+    return avg_poll
+
+def create_indicator_columns(df: pd.DataFrame, cols: List) -> pd.DataFrame:
+    """
+    Adds indicator columns to the DataFrame for specified columns.
+
+    This function takes a DataFrame and a list of column names, and creates new columns
+    indicating whether the values in the specified columns are null (NaN). The new columns
+    will have the same names as the original columns with the suffix '_indicator'. The 
+    function then concatenates these indicator columns to the original DataFrame and fills 
+    any remaining NaN values with 0.
+
+    Parameters:
+    df (pd.DataFrame): The input DataFrame.
+    cols (List): A list of column names for which to create indicator columns.
+
+    Returns:
+    pd.DataFrame: The DataFrame with the added indicator columns.
+    """
+
+    return pd.concat([df, pd.DataFrame(df[cols].isnull().astype(int).add_suffix('_indicator'))], axis=1).fillna(0)
 
 
 #%%
@@ -184,7 +311,9 @@ def rename_df_columns(X_df: pd.DataFrame, dict_cd: Dict) -> tuple:
 X_train = pd.read_csv(os.path.relpath(f'nhgis0002_ds249_20205_cd116th.csv', start=start), low_memory=False)
 X_test = pd.read_csv(os.path.relpath(f'nhgis0001_ds262_20225_cd118th.csv', start=start), low_memory=False)
 y = pd.read_csv(os.path.relpath(f'house_outcomes_historical.csv', start=start), low_memory=False)
-poll = pd.read_csv(os.path.relpath(f'538_house_polls_historical.csv', start=start), low_memory=False)
+y['party'] = y['party'].str[:3]
+poll = pd.read_csv(os.path.relpath(f'538_house_polls_historical.csv', start=start), low_memory=False).rename(columns={'seat_number':'district'})
+poll['state_po'] = state_to_postal(poll)
 
 #%%
 # Get source and NHGIS code
@@ -226,19 +355,24 @@ X_test_svd = pd.DataFrame(model_svd.transform(X_test[common_cols]))
 # Preprocessing
 X_train = pd.concat([X_train_gisjoin, X_train_svd], axis=1)
 X_test = pd.concat([X_test_gisjoin, X_test_svd], axis=1)
+
 y['GISJOIN'] = 'G' + y['state_fips'].astype(str).str.zfill(2) + y['district'].astype(str).str.zfill(3)
 y_train = y[(y['year'] == 2020) & (y['candidatevotes'] == y.groupby(['GISJOIN', 'year'])['candidatevotes'].transform('max'))]
 y_test = y[(y['year'] == 2022) & (y['candidatevotes'] == y.groupby(['GISJOIN', 'year'])['candidatevotes'].transform('max'))]
-y_train = pd.get_dummies(y_train, prefix=['party'], columns=['party'])
-y_test = pd.get_dummies(y_test, prefix=['party'], columns=['party'])
-poll_train = poll[(poll['cycle'] == 2020)]
-                #   & (poll['candidatevotes'] == poll.groupby(['GISJOIN', 'year'])['candidatevotes'].transform('max'))]
-poll_test = poll[(poll['cycle'] == 2022)]
-                #   & (poll['candidatevotes'] == poll.groupby(['GISJOIN', 'year'])['candidatevotes'].transform('max'))]
-y_train.drop(y_train[y_train['totalvotes'] <= 0].index, inplace=True)
-y_test.drop(y_test[y_test['totalvotes'] <= 0].index, inplace=True)
-train_set = y_train.merge(X_train, on='GISJOIN')
-test_set = y_test.merge(X_test, on='GISJOIN')
+
+avg_train = preprocess_poll_data(poll, 2020).merge(y_train[['state_po', 'district', 'GISJOIN']], 
+                                                   on=['state_po', 'district']).pivot(index='GISJOIN', columns='party', values='pct').reset_index()
+avg_test = preprocess_poll_data(poll, 2022).merge(y_test[['state_po', 'district', 'GISJOIN']], 
+                                                  on=['state_po', 'district']).pivot(index='GISJOIN', columns='party', values='pct').reset_index()
+
+y_train = pd.get_dummies(y_train, prefix=['party'], columns=['party']).query('totalvotes > 0')
+y_test = pd.get_dummies(y_test, prefix=['party'], columns=['party']).query('totalvotes > 0')
+
+X_train = X_train.merge(avg_train, on='GISJOIN', how='left')
+X_test = X_test.merge(avg_test, on='GISJOIN', how='left')
+
+train_set = create_indicator_columns(y_train.merge(X_train, on='GISJOIN'), party_cols)
+test_set = create_indicator_columns(y_test.merge(X_test, on='GISJOIN'), party_cols)
 
 #%%
 # Export data
