@@ -69,9 +69,9 @@ def incoming(input_path: str) -> object:
 def get_source(line: str) -> str:
     """
     Extracts the source code from a given line of text.
+    
     This function searches for a pattern in the input string that matches 
-    'Source code:' followed by any amount of whitespace and then captures 
-    the rest of the line as the source code.
+    'Source code: <code>' and extracts the Source code.
     
     Args:
         line (str): A line of text potentially containing the source code.
@@ -98,7 +98,7 @@ def get_nhgis(line: str) -> str:
         line (str): A line of text that potentially contains the NHGIS code.
 
     Returns:
-        str: The extracted NHGIS code if found, otherwise None.
+        str: The extracted NHGIS code if the pattern is found, otherwise None.
     """
     nhgis_line = re.compile(r'(NHGIS code:)(\s*)(.*)')
     nhgis_search = nhgis_line.search(line)
@@ -110,14 +110,14 @@ def get_nhgis(line: str) -> str:
 
 def get_dict(input_path: str) -> Dict:
     """
-    Parses an input file to create a dictionary mapping NHGIS codes to source codes.
+    Parses an input file to create a dictionary mapping NHGIS codes to Source codes.
     
     Args:
         input_path (str): The path to the input file to be processed.
     
     Returns:
-        dict: A dictionary where the keys are NHGIS codes and the values are source codes.
-    The function reads the input file line by line, extracting source codes and NHGIS codes
+        dict: A dictionary where the keys are NHGIS codes and the values are Source codes.
+    The function reads the input file line by line, extracting NHGIS codes and Source codes
     using the `get_source` and `get_nhgis` functions, respectively. If both codes are successfully
     extracted from a line, they are added to the dictionary. The process continues until the end
     of the file is reached.
