@@ -1,7 +1,4 @@
 # data sources
-
-
-
 American Community Survey (ACS) 1-Year Estimates datasets can be found at: https://data.census.gov/.
 
 >Dataset Citation:
