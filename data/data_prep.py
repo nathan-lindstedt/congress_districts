@@ -7,6 +7,7 @@ import re
 
 from contextlib import contextmanager
 from logging import exception
+from typing import Dict
 
 from sklearn.decomposition import TruncatedSVD
 
@@ -16,33 +17,43 @@ start: str = os.path.dirname(__file__)
 
 #%%
 # Global variables
-context_fields = ['GISJOIN','YEAR','STUSAB',
-                  'REGIONA','DIVISIONA','STATE',
-                  'STATEA','COUNTYA','COUSUBA',
-                  'PLACEA','TRACTA','BLKGRPA',
-                  'CONCITA','AIANHHA','RES_ONLYA',
-                  'TRUSTA','AIHHTLI','AITSCEA',
-                  'ANRCA','CBSAA','CSAA',
-                  'METDIVA','NECTAA','CNECTAA',
-                  'NECTADIVA','UAA','CDCURRA',
-                  'SLDUA','SLDLA','ZCTA5A',
-                  'SUBMCDA','SDELMA','SDSECA',
-                  'SDUNIA','PCI','PUMAA',
-                  'GEOID','BTTRA','BTBGA',
-                  'NAME_E','GEO_ID','TL_GEO_ID',
-                  'NAME_M','AITSA']
+context_fields: Dict = ['GISJOIN','YEAR','STUSAB',
+                        'REGIONA','DIVISIONA','STATE',
+                        'STATEA','COUNTYA','COUSUBA',
+                        'PLACEA','TRACTA','BLKGRPA',
+                        'CONCITA','AIANHHA','RES_ONLYA',
+                        'TRUSTA','AIHHTLI','AITSCEA',
+                        'ANRCA','CBSAA','CSAA',
+                        'METDIVA','NECTAA','CNECTAA',
+                        'NECTADIVA','UAA','CDCURRA',
+                        'SLDUA','SLDLA','ZCTA5A',
+                        'SUBMCDA','SDELMA','SDSECA',
+                        'SDUNIA','PCI','PUMAA',
+                        'GEOID','BTTRA','BTBGA',
+                        'NAME_E','GEO_ID','TL_GEO_ID',
+                        'NAME_M','AITSA']
 
 #%%
 # Data preparation functions
 @contextmanager
-def incoming(input_path):
-    """[Opens read-only .txt file with encoding='Windows-1252']
-    
-    Arguments:
-        input_path {[str]} -- [Input path]
-    
+def incoming(input_path: str) -> object:
+    """
+    Context manager for opening a file with the specified input path.
+
+    Args:
+        input_path (str): The path to the file to be opened.
+
     Yields:
-        [obj] -- [Read-only .txt file with encoding='Windows-1252']
+        object: The file object opened in read mode with 'Windows-1252' encoding.
+
+    Raises:
+        FileNotFoundError: If the file specified by input_path does not exist.
+        Exception: For any other exceptions that occur during file opening.
+
+    Example:
+        with incoming('path/to/file.txt') as file:
+            # Process the file
+            data = file.read()
     """
     try:
         infile = open(input_path, 'r', encoding='Windows-1252') 
@@ -55,7 +66,19 @@ def incoming(input_path):
     finally:
         infile.close()
 
-def get_source(line):
+def get_source(line: str) -> str:
+    """
+    Extracts the source code from a given line of text.
+    This function searches for a pattern in the input string that matches 
+    'Source code:' followed by any amount of whitespace and then captures 
+    the rest of the line as the source code.
+    
+    Args:
+        line (str): A line of text potentially containing the source code.
+    
+    Returns:
+        str: The extracted source code if the pattern is found, otherwise None.
+    """
     source_line = re.compile(r'(Source code:)(\s*)(.*)')
     source_search = source_line.search(line)
 
@@ -64,7 +87,19 @@ def get_source(line):
     
     return source_code
 
-def get_nhgis(line):
+def get_nhgis(line: str) -> str:
+    """
+    Extracts the NHGIS code from a given line of text.
+
+    This function searches for a pattern in the input line that matches the format
+    'NHGIS code: <code>' and extracts the NHGIS code.
+
+    Args:
+        line (str): A line of text that potentially contains the NHGIS code.
+
+    Returns:
+        str: The extracted NHGIS code if found, otherwise None.
+    """
     nhgis_line = re.compile(r'(NHGIS code:)(\s*)(.*)')
     nhgis_search = nhgis_line.search(line)
 
@@ -73,7 +108,20 @@ def get_nhgis(line):
 
     return nhgis_code
 
-def get_dict(input_path):
+def get_dict(input_path: str) -> Dict:
+    """
+    Parses an input file to create a dictionary mapping NHGIS codes to source codes.
+    
+    Args:
+        input_path (str): The path to the input file to be processed.
+    
+    Returns:
+        dict: A dictionary where the keys are NHGIS codes and the values are source codes.
+    The function reads the input file line by line, extracting source codes and NHGIS codes
+    using the `get_source` and `get_nhgis` functions, respectively. If both codes are successfully
+    extracted from a line, they are added to the dictionary. The process continues until the end
+    of the file is reached.
+    """
     dict_cd = {}
     source_code, nhgis_code = None, None
 
@@ -99,14 +147,25 @@ def get_dict(input_path):
     
     return dict_cd
 
-def rename_df_columns(X_df, dict_cd):
+def rename_df_columns(X_df: pd.DataFrame, dict_cd: Dict) -> tuple:
+    """
+    Renames the columns of a DataFrame based on a provided dictionary of codes.
+
+    Args:
+        X_df (pd.DataFrame): The DataFrame whose columns are to be renamed.
+        dict_cd (dict): A dictionary where keys are substrings to be replaced in the column names,
+                        and values are the corresponding replacements.
+
+    Returns:
+        tuple: A tuple containing the list of renamed columns and the DataFrame with renamed columns.
+    """
     column_list = list(X_df.columns)
     rename_list = []
 
     for index, data in enumerate(column_list):
-        for key, _ in dict_cd.items():
+        for key, value in dict_cd.items():
             if key in data:
-                column_list[index]=data.replace(key, dict_cd[key])
+                column_list[index] = data.replace(key, value)
                 rename_list.append(column_list[index])
 
     return rename_list, X_df.set_axis(column_list, axis=1).dropna(axis=1)
@@ -143,7 +202,7 @@ X_test = X_test[common_cols]
 # Truncated SVD w/ automatic component selection for dimensionality reduction
 svd_performance = []
 base = X_train.shape[0]//10
-scree = range(1, X_train.shape[1]//base, 1)
+scree = range(1, X_train.shape[1]//base)
 
 for n in scree:
     scree_svd = TruncatedSVD(n_components=n, random_state=42) 
