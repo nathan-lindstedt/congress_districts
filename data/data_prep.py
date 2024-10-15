@@ -7,7 +7,7 @@ import re
 
 from contextlib import contextmanager
 from logging import exception
-from typing import Dict
+from typing import List
 
 from sklearn.decomposition import TruncatedSVD
 
@@ -17,7 +17,7 @@ start: str = os.path.dirname(__file__)
 
 #%%
 # Global variables
-context_fields: Dict = ['GISJOIN','YEAR','STUSAB',
+context_fields: List = ['GISJOIN','YEAR','STUSAB',
                         'REGIONA','DIVISIONA','STATE',
                         'STATEA','COUNTYA','COUSUBA',
                         'PLACEA','TRACTA','BLKGRPA',
