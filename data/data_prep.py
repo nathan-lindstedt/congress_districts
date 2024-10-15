@@ -7,7 +7,7 @@ import re
 
 from contextlib import contextmanager
 from logging import exception
-from typing import List
+from typing import Dict, List
 
 from sklearn.decomposition import TruncatedSVD
 
