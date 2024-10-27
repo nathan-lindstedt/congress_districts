@@ -7,6 +7,8 @@ from sklearn.metrics import roc_auc_score
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
+from sklearn.experimental import enable_halving_search_cv
+from sklearn.model_selection import HalvingGridSearchCV
 
 import xgboost
 
@@ -31,22 +33,61 @@ def train(X_train: pd.DataFrame, y_train: pd.Series, X_val: pd.DataFrame, y_val:
         5. Saves the trained model to a specified file path.
     """
 
+    min_child_weight: int = 8
+    max_bin: int = 48
+    num_parallel_tree: int = 96
+    subsample: float = 0.8
+    colsample_bytree: float = 0.8
+    colsample_bynode: float = 0.8
+    verbose: bool = False
+
     print('Train features shape: {}'.format(X_train.shape))
     print('Train labels shape: {}'.format(y_train.shape))
     print('Validation features shape: {}'.format(X_val.shape))
     print('Validation labels shape: {}'.format(y_val.shape))
 
-    xgb = xgboost.XGBClassifier(n_estimators=500,
-                                gamma=0, 
-                                learning_rate=0.05, 
-                                max_depth=3, 
-                                eval_metric='auc', 
-                                colsample_bytree=0.8, 
-                                colsample_bylevel=0.8, 
-                                colsample_bynode=0.8, 
-                                num_parallel_tree=48)
+    xgb_hyperparameters = [{'max_depth': np.linspace(1, 25, 25, dtype=int, endpoint=True),
+                            'gamma': np.linspace(0, 1, 10, dtype=float, endpoint=True),
+                            'learning_rate': [0.01, 0.1, 0.25, 0.5, 0.75, 1.0]}]
 
-    model = xgb.fit(X_train, y_train, eval_set=[(X_val, y_val)], early_stopping_rounds=20)
+    xgb_gridsearch = HalvingGridSearchCV(xgboost.XGBClassifier(tree_method='hist', 
+                                                            grow_policy='depthwise', 
+                                                            min_child_weight=min_child_weight, 
+                                                            max_bin=max_bin, 
+                                                            num_parallel_tree=num_parallel_tree, 
+                                                            subsample=subsample, 
+                                                            colsample_bytree=colsample_bytree, 
+                                                            colsample_bynode=colsample_bynode, 
+                                                            eval_metric='logloss',
+                                                            early_stopping_rounds=20, 
+                                                            use_label_encoder=False, 
+                                                            n_jobs=-1), 
+                                                            xgb_hyperparameters,
+                                                            scoring='roc_auc',
+                                                            resource='n_estimators', 
+                                                            factor=3, 
+                                                            min_resources=5, 
+                                                            max_resources=1000, 
+                                                            aggressive_elimination=True,  
+                                                            cv=3, 
+                                                            verbose=verbose, 
+                                                            n_jobs=-1)
+
+    xgb_best_model = xgb_gridsearch.fit(X_train, y_train, eval_set=[(X_val, y_val)], verbose=False)
+
+    model = xgboost.XGBClassifier(tree_method='hist', 
+                                  grow_policy='depthwise', 
+                                  min_child_weight=min_child_weight, 
+                                  max_bin=max_bin, 
+                                  num_parallel_tree=num_parallel_tree, 
+                                  subsample=subsample, 
+                                  colsample_bytree=colsample_bytree, 
+                                  colsample_bynode=colsample_bynode, 
+                                  eval_metric='logloss',
+                                  early_stopping_rounds=20,  
+                                  **xgb_gridsearch.best_params_, 
+                                  use_label_encoder=False, 
+                                  n_jobs=-1).fit(X_train, y_train, eval_set=[(X_val, y_val)], verbose=False)
 
     pred_val = model.predict(X_val)
     

@@ -2,7 +2,7 @@
 # Import libraries
 import os
 
-from typing import List, partial
+from typing import List
 
 from steps.preprocess import preprocess
 from steps.train import train
@@ -41,7 +41,7 @@ def import_data_s3_uri(bucket_name: str) -> str:
 # Create pipeline steps
 def create_steps(role: str, input_data_s3_uri: str, bucket_name: str, 
                  model_package_group_name: str, model_approval_status: str, 
-                 deploy_model_parameter: partial) -> List:
+                 deploy_model_parameter) -> List:
     """
     Creates a list of steps for a machine learning pipeline.
 
