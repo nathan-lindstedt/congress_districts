@@ -346,7 +346,7 @@ for n in scree:
     scree_fit = scree_svd.fit(X_train[common_cols])
     svd_performance.append(scree_fit.explained_variance_ratio_.sum())
 
-n_components = len([x for x in svd_performance if x <= .95])
+n_components = len([x for x in svd_performance if x <= .975])
 model_svd = TruncatedSVD(n_components=n_components)
 X_train_svd = pd.DataFrame(model_svd.fit_transform(X_train[common_cols]))
 X_test_svd = pd.DataFrame(model_svd.transform(X_test[common_cols]))
