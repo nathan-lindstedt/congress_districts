@@ -33,7 +33,7 @@ def preprocess(input_data_s3_uri: str) -> Tuple:
             - featurizer_model (ColumnTransformer): The fitted transformation model.
     """
 
-    data_columns: List = ['0', '1', '2', '3', '4', '5']
+    data_columns: List = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
     target_column: str = 'party_REP'
 
     train_set = pd.read_csv(f"{input_data_s3_uri}/train_set.csv")
