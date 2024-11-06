@@ -33,7 +33,7 @@ def train(X_train: pd.DataFrame, y_train: pd.Series, X_val: pd.DataFrame, y_val:
         5. Saves the trained model to a specified file path.
     """
 
-    min_child_weight: int = 4
+    min_child_weight: int = 8
     max_bin: int = 48
     num_parallel_tree: int = 96
     subsample: float = 0.8
