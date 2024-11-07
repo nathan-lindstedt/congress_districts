@@ -73,14 +73,15 @@ def get_source(line: str) -> str:
     """
     Extracts the source code from a given line of text.
     
-    This function searches for a pattern in the input string that matches 
-    'Source code: <code>' and extracts the Source code.
-    
     Args:
         line (str): A line of text potentially containing the Source code.
     
     Returns:
         str: The extracted source code if the pattern is found, otherwise None.
+
+    Summary:
+        This function searches for a pattern in the input string that matches
+        'Source code: <code>' and extracts the source code.
     """
 
     source_line = re.compile(r'(Source code:)(\s*)(.*)')
@@ -95,14 +96,15 @@ def get_nhgis(line: str) -> str:
     """
     Extracts the NHGIS code from a given line of text.
 
-    This function searches for a pattern in the input line that matches the format
-    'NHGIS code: <code>' and extracts the NHGIS code.
-
     Args:
         line (str): A line of text that potentially contains the NHGIS code.
 
     Returns:
         str: The extracted NHGIS code if the pattern is found, otherwise None.
+
+    Summary:
+        This function searches for a pattern in the input string that matches
+        'NHGIS code: <code>' and extracts the NHGIS code.
     """
 
     nhgis_line = re.compile(r'(NHGIS code:)(\s*)(.*)')
@@ -124,7 +126,7 @@ def get_dict(input_path: str) -> Dict:
         dict: A dictionary where the keys are NHGIS codes and the values are Source codes.
     
     Summary:
-        The function reads the input file line by line, extracting NHGIS codes and Source codes
+        The function reads the input file line by line, extracting Source codes and NHGIS codes
         using the `get_source` and `get_nhgis` functions, respectively. If both codes are successfully
         extracted from a line, they are added to the dictionary. The process continues until the end
         of the file is reached.
@@ -184,11 +186,6 @@ def state_to_postal(df: pd.DataFrame) -> pd.DataFrame:
     """
     Converts a DataFrame of state names to their postal abbreviations.
 
-    This function takes a DataFrame containing state names and returns a new DataFrame 
-    with two columns: 'state' and 'state_po'. The 'state' column contains the full 
-    names of U.S. states, the District of Columbia, and U.S. territories, while the 
-    'state_po' column contains their corresponding postal abbreviations.
-
     Args:
         df (pd.DataFrame): A DataFrame containing state names.
 
@@ -197,6 +194,12 @@ def state_to_postal(df: pd.DataFrame) -> pd.DataFrame:
 
     Returns:
         pd.DataFrame: A DataFrame with state abbreviations and state names.
+    
+    Summary:
+        This function takes a DataFrame containing state names and returns a new DataFrame 
+        with two columns: 'state' and 'state_po'. The 'state' column contains the full 
+        names of U.S. states, the District of Columbia, and U.S. territories, while the 
+        'state_po' column contains their corresponding postal abbreviations.
     """
 
     us_state_to_abbrev: Dict = {"Alabama": "AL",
@@ -263,11 +266,6 @@ def preprocess_poll_data(poll: pd.DataFrame, cycle_year: int) -> pd.DataFrame:
     """
     Preprocesses poll data for a given election cycle year.
 
-    This function filters the poll data to include only the specified election cycle year
-    and the two major parties (Republican and Democrat). It then selects the most recent
-    poll for each state, district, and party combination. Finally, it calculates the average
-    polling percentage for each combination.
-
     Args:
         poll (pd.DataFrame): The DataFrame containing poll data. It must include the columns
                              'cycle', 'party', 'end_date', 'state_po', 'district', and 'pct'.
@@ -277,6 +275,12 @@ def preprocess_poll_data(poll: pd.DataFrame, cycle_year: int) -> pd.DataFrame:
         pd.DataFrame: A DataFrame with the average polling percentages for each state, district,
                       and party combination. The DataFrame includes the columns 'state_po',
                       'district', 'party', and 'pct'.
+
+    Summary:
+        The function filters the poll data for the specified election cycle year and for the
+        'REP' and 'DEM' parties. It then selects the most recent poll for each state, district,
+        and party combination based on the 'end_date' column. Finally, it calculates the average
+        polling percentage for each state, district, and party combination and returns the result.
     """
 
     poll_cycle = poll[(poll['cycle'] == cycle_year) & (poll['party'].isin(['REP', 'DEM']))]
@@ -289,18 +293,17 @@ def create_indicator_columns(df: pd.DataFrame, cols: List) -> pd.DataFrame:
     """
     Adds indicator columns to the DataFrame for specified columns.
 
-    This function takes a DataFrame and a list of column names, and creates new columns
-    indicating whether the values in the specified columns are null (NaN). The new columns
-    will have the same names as the original columns with the suffix '_indicator'. The 
-    function then concatenates these indicator columns to the original DataFrame and fills 
-    any remaining NaN values with 0.
-
-    Parameters:
-    df (pd.DataFrame): The input DataFrame.
-    cols (List): A list of column names for which to create indicator columns.
+    Args:
+        df (pd.DataFrame): The input DataFrame.
+        cols (List): A list of column names for which to create indicator columns.
 
     Returns:
-    pd.DataFrame: The DataFrame with the added indicator columns.
+        pd.DataFrame: The DataFrame with the added indicator columns.
+
+    Summary:
+        The function creates indicator columns for the specified columns in the input DataFrame.
+        Each indicator column is named by adding '_indicator' to the original column name. The
+        indicator columns are binary, with 1 indicating a missing value and 0 indicating a non-missing value.
     """
 
     return pd.concat([df, pd.DataFrame(df[cols].isnull().astype(int).add_suffix('_indicator'))], axis=1).fillna(0)
