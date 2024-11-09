@@ -26,8 +26,8 @@ import xgboost
 data_columns: List = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
 target_column: str = 'party_REP'
 
-train_set = pd.read_csv(f"/Users/nathan.lindstedt/Documents/GitHub Projects/congress_districts/output/train_set.csv")
-test_set = pd.read_csv(f"/Users/nathan.lindstedt/Documents/GitHub Projects/congress_districts/output/test_set.csv")
+train_set = pd.read_csv(f".../congress_districts/output/train_set.csv")
+test_set = pd.read_csv(f".../congress_districts/output/test_set.csv")
 
 X_train = train_set.drop(target_column, axis=1)
 X_train = X_train[data_columns]
