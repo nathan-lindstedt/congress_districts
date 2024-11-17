@@ -355,6 +355,26 @@ X_train_svd = pd.DataFrame(model_svd.fit_transform(X_train[common_cols]))
 X_test_svd = pd.DataFrame(model_svd.transform(X_test[common_cols]))
 
 #%%
+# Extract top ten features of selected components from Truncated SVD
+feature_contributions_list: List = []
+
+components = model_svd.components_
+component_df = pd.DataFrame(components, columns=common_cols)
+
+for i, component in enumerate(components):
+    print(f"Component {i+1}:")
+    feature_contributions = sorted(zip(common_cols, component), key=lambda x: abs(x[1]), reverse=True)
+    for feature, contribution in feature_contributions[:10]:
+        feature_contributions_list.append({
+            'Component': i + 1,
+            'Feature': feature,
+            'Contribution': contribution
+        })
+
+feature_contributions_df = pd.DataFrame(feature_contributions_list)
+feature_contributions_df.to_csv(os.path.relpath(f'../output/top_feature_contributions.csv', start=start), index=False)
+
+#%%
 # Preprocessing
 X_train = pd.concat([X_train_gisjoin, X_train_svd], axis=1)
 X_test = pd.concat([X_test_gisjoin, X_test_svd], axis=1)
