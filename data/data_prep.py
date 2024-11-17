@@ -355,8 +355,9 @@ X_train_svd = pd.DataFrame(model_svd.fit_transform(X_train[common_cols]))
 X_test_svd = pd.DataFrame(model_svd.transform(X_test[common_cols]))
 
 #%%
-# Extract top ten features of selected components from Truncated SVD
+# Extract top feature contributions of selected components from Truncated SVD
 feature_contributions_list: List = []
+top_n: int = 10
 
 components = model_svd.components_
 component_df = pd.DataFrame(components, columns=common_cols)
@@ -364,7 +365,7 @@ component_df = pd.DataFrame(components, columns=common_cols)
 for i, component in enumerate(components):
     print(f"Component {i+1}:")
     feature_contributions = sorted(zip(common_cols, component), key=lambda x: abs(x[1]), reverse=True)
-    for feature, contribution in feature_contributions[:10]:
+    for feature, contribution in feature_contributions[:top_n]:
         feature_contributions_list.append({
             'Component': i + 1,
             'Feature': feature,
