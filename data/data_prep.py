@@ -356,6 +356,15 @@ X_test_svd = pd.DataFrame(model_svd.transform(X_test[common_cols]))
 
 #%%
 # Extract top feature contributions of selected components from Truncated SVD
+
+# Note: SVD suffers from "sign indeterminacy", meaning the sign of the components_ 
+# and the output from transform depend on the algorithm and random state. 
+# To work around this, fit instances of this class to data once, then keep the 
+# instance around to do transformations. Thus, the absolute value of the contribution
+# is used to determine the top features for each component.
+
+# (See: https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html)
+
 feature_contributions_list: List = []
 top_n: int = 10
 
