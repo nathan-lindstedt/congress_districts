@@ -334,7 +334,8 @@ def reduce_dimensions_svd(X_train: pd.DataFrame, X_test: pd.DataFrame, common_co
         (See: https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html)
     """
 
-    svd_performance = []
+    svd_performance: List = []
+
     base = X_train.shape[0]//10
     scree = range(1, X_train.shape[1]//base)
 
@@ -351,7 +352,7 @@ def reduce_dimensions_svd(X_train: pd.DataFrame, X_test: pd.DataFrame, common_co
     
     return model_svd, X_train_svd, X_test_svd
 
-def generate_feature_importance(common_cols: List[str], model_svd: TruncatedSVD) -> pd.DataFrame:
+def generate_feature_importance(common_cols: List, model_svd: TruncatedSVD) -> pd.DataFrame:
     """
     Generate a DataFrame containing the top feature contributions for each component 
     from the Truncated SVD model.
