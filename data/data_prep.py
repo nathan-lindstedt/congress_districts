@@ -363,7 +363,6 @@ components = model_svd.components_
 component_df = pd.DataFrame(components, columns=common_cols)
 
 for i, component in enumerate(components):
-    print(f"Component {i+1}:")
     feature_contributions = sorted(zip(common_cols, component), key=lambda x: abs(x[1]), reverse=True)
     for feature, contribution in feature_contributions[:top_n]:
         feature_contributions_list.append({
