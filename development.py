@@ -77,10 +77,10 @@ print(f'Shape of model one validation labels after preprocessing: {model_one_y_v
 print(f'Shape of model one test labels after preprocessing: {model_one_y_test.shape}\n')
 
 model_two_transformer = ColumnTransformer(transformers=[
-                                            #   ('numeric', StandardScaler(), model_two_columns),
-                                            #   ('categorical', OneHotEncoder(), model_two_columns)
-                                            ],
-                                remainder='passthrough')
+                                                        # ('numeric', StandardScaler(), model_two_columns),
+                                                        # ('categorical', OneHotEncoder(), model_two_columns)
+                                                        ],
+                                                        remainder='passthrough')
 model_two_featurizer = model_two_transformer.fit(model_two_X_train)
 model_two_X_train = model_two_featurizer.transform(model_two_X_train)
 model_two_X_val = model_two_featurizer.transform(model_two_X_val)
