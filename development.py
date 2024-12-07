@@ -56,10 +56,10 @@ model_one_X_train, model_one_X_val, model_one_y_train, model_one_y_val = train_t
 model_two_X_train, model_two_X_val, model_two_y_train, model_two_y_val = train_test_split(model_two_X_train, model_two_y_train, test_size=validation_ratio, random_state=2)
 
 model_one_transformer = ColumnTransformer(transformers=[
-                                            #   ('numeric', StandardScaler(), model_one_columns),
-                                            #   ('categorical', OneHotEncoder(), model_one_columns)
-                                            ],
-                                remainder='passthrough')
+                                                        # ('numeric', StandardScaler(), model_one_columns),
+                                                        # ('categorical', OneHotEncoder(), model_one_columns)
+                                                        ],
+                                                        remainder='passthrough')
 model_one_featurizer = model_one_transformer.fit(model_one_X_train)
 model_one_X_train = model_one_featurizer.transform(model_one_X_train)
 model_one_X_val = model_one_featurizer.transform(model_one_X_val)
@@ -77,10 +77,10 @@ print(f'Shape of model one validation labels after preprocessing: {model_one_y_v
 print(f'Shape of model one test labels after preprocessing: {model_one_y_test.shape}\n')
 
 model_two_transformer = ColumnTransformer(transformers=[
-                                            #   ('numeric', StandardScaler(), model_two_columns),
-                                            #   ('categorical', OneHotEncoder(), model_two_columns)
-                                            ],
-                                remainder='passthrough')
+                                                        # ('numeric', StandardScaler(), model_two_columns),
+                                                        # ('categorical', OneHotEncoder(), model_two_columns)
+                                                        ],
+                                                        remainder='passthrough')
 model_two_featurizer = model_two_transformer.fit(model_two_X_train)
 model_two_X_train = model_two_featurizer.transform(model_two_X_train)
 model_two_X_val = model_two_featurizer.transform(model_two_X_val)
@@ -108,7 +108,7 @@ colsample_bynode: float = 0.8
 verbose: bool = True
 
 xgb_hyperparameters = [{'max_depth': np.linspace(1, 25, 25, dtype=int, endpoint=True),
-                        'gamma': np.linspace(0, 1, 10, dtype=float, endpoint=True),
+                        'gamma': np.linspace(0, 1, 11, dtype=float, endpoint=True),
                         'learning_rate': [0.01, 0.1, 0.25, 0.5, 0.75, 1.0]}]
 
 model_one_xgb_start = time.perf_counter()
