@@ -19,4 +19,4 @@ U.S. House 1976-2022 outcomes can be found at: https://dataverse.harvard.edu/dat
 
 U.S. House polls for the current and past cycles can be found on the bottom of the page at: https://projects.fivethirtyeight.com/polls/.
 
-![alt text](image.png)
+![polling data](../images/polling_data.png)
