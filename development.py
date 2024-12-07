@@ -25,8 +25,8 @@ start: str = os.path.dirname(__file__)
 
 #%%
 # Load the data, split into training and testing sets, and preprocess
-model_one_columns: List = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-model_two_columns: List = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'REP', 'REP_indicator']
+model_one_columns: List = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
+model_two_columns: List = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', 'REP', 'REP_indicator']
 
 target_column: str = 'party_REP'
 drop_column: str = 'REP_indicator'
@@ -99,7 +99,7 @@ print(f'Shape of model two test labels after preprocessing: {model_two_y_test.sh
 
 #%%
 # Train the models with hyperparameter tuning
-min_child_weight: int = 5
+min_child_weight: int = 6
 max_bin: int = 48
 num_parallel_tree: int = 96
 subsample: float = 0.8
