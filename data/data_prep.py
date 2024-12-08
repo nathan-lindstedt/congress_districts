@@ -38,21 +38,21 @@ context_fields: List = ['GISJOIN','YEAR','STUSAB',
 
 state_fips: List = [1, 2, 4,
                     5, 6, 8,
-                    9, 10, 12,
-                    13, 15, 16,
-                    17, 18, 19, 
-                    20, 21, 22,
-                    23, 24, 25,
-                    26, 27, 28, 
-                    29, 30, 31, 
-                    32, 33, 34, 
-                    35, 36, 37,
-                    38, 39, 40, 
-                    41, 42, 44, 
-                    45, 46, 47, 
-                    48, 49, 50, 
-                    51, 53, 54, 
-                    55, 56]
+                    9, 10, 11,
+                    12, 13, 15, 
+                    16, 17, 18, 
+                    19, 20, 21, 
+                    22, 23, 24, 
+                    25, 26, 27, 
+                    28, 29, 30, 
+                    31, 32, 33, 
+                    34, 35, 36, 
+                    37, 38, 39, 
+                    40, 41, 42, 
+                    44, 45, 46, 
+                    47, 48, 49, 
+                    50, 51, 53, 
+                    54, 55, 56]
 
 party_cols: List = ['REP', 'DEM']
 
@@ -362,17 +362,14 @@ X_test_geoid = pd.DataFrame(X_test['GEO_ID'])
 X_train = X_train[X_train['state'].isin(state_fips)]
 X_test = X_test[X_test['state'].isin(state_fips)]
 
-X_train = X_train[X_train['congressional district'] != 'ZZ']
-X_test = X_test[X_test['congressional district'] != 'ZZ']
-
 X_train_cols = [col for col in X_train.columns if col not in context_fields]
 X_test_cols = [col for col in X_test.columns if col not in context_fields]
 
 X_train = X_train[X_train_cols]
 X_test = X_test[X_test_cols]
 
-# X_train = X_train.loc[:, (X_train >= 0).all()]
-# X_test = X_test.loc[:, (X_test >= 0).all()]
+X_train = X_train.loc[:, (X_train >= 0).all()]
+X_test = X_test.loc[:, (X_test >= 0).all()]
 
 #%%
 # Keep common columns
