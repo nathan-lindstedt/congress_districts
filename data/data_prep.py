@@ -3,7 +3,6 @@
 import os
 
 import pandas as pd
-import re
 
 from contextlib import contextmanager
 from logging import exception
@@ -87,84 +86,6 @@ def outgoing(output_path: str) -> object:
     finally:
         outfile.close()
 
-@contextmanager
-def incoming(input_path: str) -> object:
-    """
-    Context manager for opening a file with the specified input path.
-
-    Args:
-        input_path (str): The path to the file to be opened.
-
-    Yields:
-        object: The file object opened in read mode with 'Windows-1252' encoding.
-
-    Raises:
-        FileNotFoundError: If the file specified by input_path does not exist.
-        Exception: For any other exceptions that occur during file opening.
-
-    Example:
-        with incoming('path/to/file.txt') as file:
-            # Process the file
-            data = file.read()
-    """
-
-    try:
-        infile = open(input_path, 'r', encoding='Windows-1252') 
-    except FileNotFoundError as incoming_error:
-        exception(incoming_error)
-    except Exception as incoming_e:
-        exception(incoming_e)
-    else:
-        yield infile
-    finally:
-        infile.close()
-
-def get_source(line: str) -> str:
-    """
-    Extracts the source code from a given line of text.
-    
-    Args:
-        line (str): A line of text potentially containing the Source code.
-    
-    Returns:
-        str: The extracted source code if the pattern is found, otherwise None.
-
-    Summary:
-        This function searches for a pattern in the input string that matches
-        'Source code: <code>' and extracts the source code.
-    """
-
-    source_line = re.compile(r'(Source code:)(\s*)(.*)')
-    source_search = source_line.search(line)
-
-    if source_search:
-        source_code = source_search.group(3)
-    
-    return source_code
-
-def get_nhgis(line: str) -> str:
-    """
-    Extracts the NHGIS code from a given line of text.
-
-    Args:
-        line (str): A line of text that potentially contains the NHGIS code.
-
-    Returns:
-        str: The extracted NHGIS code if the pattern is found, otherwise None.
-
-    Summary:
-        This function searches for a pattern in the input string that matches
-        'NHGIS code: <code>' and extracts the NHGIS code.
-    """
-
-    nhgis_line = re.compile(r'(NHGIS code:)(\s*)(.*)')
-    nhgis_search = nhgis_line.search(line)
-
-    if nhgis_search:
-        nhgis_code = nhgis_search.group(3)
-
-    return nhgis_code
-
 def census_data_api(acs_tables: list, year: int, output_path: str) -> None:
     """
     Writes data from Census API to a file in CSV format.
@@ -200,49 +121,6 @@ def census_data_api(acs_tables: list, year: int, output_path: str) -> None:
 
             for row in data:
                 outfile.write(','.join(str(row[col]) for col in columns) + '\n')
-
-def get_dict(input_path: str) -> Dict:
-    """
-    Parses an input file to create a dictionary mapping NHGIS codes to Source codes.
-    
-    Args:
-        input_path (str): The path to the input file to be processed.
-    
-    Returns:
-        dict: A dictionary where the keys are NHGIS codes and the values are Source codes.
-    
-    Summary:
-        The function reads the input file line by line, extracting Source codes and NHGIS codes
-        using the `get_source` and `get_nhgis` functions, respectively. If both codes are successfully
-        extracted from a line, they are added to the dictionary. The process continues until the end
-        of the file is reached.
-    """
-
-    dict_cd: Dict = {}
-    source_code: str = None
-    nhgis_code: str = None
-
-    with incoming(input_path) as infile:
-        line = infile.readline()
-        
-        while line:
-            line = infile.readline()
-
-            try:
-                source_code = get_source(line)
-            except:
-                pass
-
-            try:
-                nhgis_code = get_nhgis(line)
-            except:
-                pass
-
-            if None not in (source_code, nhgis_code):
-                dict_cd[nhgis_code] = source_code
-                source_code, nhgis_code = None, None
-    
-    return dict_cd
 
 def state_to_postal(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -398,7 +276,7 @@ def reduce_dimensions_svd(X_train: pd.DataFrame, X_test: pd.DataFrame, common_co
 
     svd_performance: List = []
 
-    base = X_train.shape[0]//10
+    base = X_train.shape[0]//2
     scree = range(1, X_train.shape[1]//base)
 
     for n in scree:
@@ -499,8 +377,8 @@ X_test = X_test.loc[:, (X_test >= 0).all()]
 # Keep common columns
 common_cols = list(set(X_train.columns) & set(X_test.columns))
 
-X_train = X_train[common_cols]
-X_test = X_test[common_cols]
+X_train = X_train[common_cols].sort_index(axis=1)
+X_test = X_test[common_cols].sort_index(axis=1)
 
 #%%
 # Truncated SVD w/ component selection for dimensionality reduction and feature contribution
@@ -512,7 +390,8 @@ feature_contributions_df = generate_feature_importance(common_cols, model_svd)
 X_train = pd.concat([X_train_geoid, X_train_svd], axis=1)
 X_test = pd.concat([X_test_geoid, X_test_svd], axis=1)
 
-y['GEO_ID'] = '5001800US' + y['state_fips'].astype(str).str.zfill(2) + y['district'].astype(str).str.zfill(2)
+y.loc[y['year'] == 2020, 'GEO_ID'] = '5001600US' + y['state_fips'].astype(str).str.zfill(2) + y['district'].astype(str).str.zfill(2)
+y.loc[y['year'] == 2022, 'GEO_ID'] = '5001800US' + y['state_fips'].astype(str).str.zfill(2) + y['district'].astype(str).str.zfill(2)
 
 y_train = y[
     (y['year'] == 2020) & 
