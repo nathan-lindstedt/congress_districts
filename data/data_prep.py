@@ -38,21 +38,21 @@ context_fields: List = ['GISJOIN','YEAR','STUSAB',
 
 state_fips: List = [1, 2, 4,
                     5, 6, 8,
-                    9, 10, 12,
-                    13, 15, 16,
-                    17, 18, 19, 
-                    20, 21, 22,
-                    23, 24, 25,
-                    26, 27, 28, 
-                    29, 30, 31, 
-                    32, 33, 34, 
-                    35, 36, 37,
-                    38, 39, 40, 
-                    41, 42, 44, 
-                    45, 46, 47, 
-                    48, 49, 50, 
-                    51, 53, 54, 
-                    55, 56]
+                    9, 10, 11,
+                    12, 13, 15, 
+                    16, 17, 18, 
+                    19, 20, 21, 
+                    22, 23, 24, 
+                    25, 26, 27, 
+                    28, 29, 30, 
+                    31, 32, 33, 
+                    34, 35, 36, 
+                    37, 38, 39, 
+                    40, 41, 42, 
+                    44, 45, 46, 
+                    47, 48, 49, 
+                    50, 51, 53, 
+                    54, 55, 56]
 
 party_cols: List = ['REP', 'DEM']
 
@@ -86,80 +86,6 @@ def outgoing(output_path: str) -> object:
         yield outfile
     finally:
         outfile.close()
-
-@contextmanager
-def outgoing(output_path: str) -> object:
-    """
-    Context manager for opening a file with the specified output path.
-
-    Args:
-        output_path (str): The path to the file to be opened.
-
-    Yields:
-        object: The file object opened in write mode with 'Windows-1252' encoding.
-
-    Raises:
-        Exception: For any exceptions that occur during file opening.
-
-    Example:
-        with outgoing('path/to/file.txt') as file:
-            # Write to the file
-            file.write('Hello, World!')
-    """
-
-    try:
-        outfile = open(output_path, 'w', encoding='Windows-1252')
-    except Exception as outgoing_e:
-        exception(outgoing_e)
-    else:
-        yield outfile
-    finally:
-        outfile.close()
-
-def census_data_api(acs_tables: list, year: int, output_path: str) -> None:
-    """
-    Writes data from Census API to a file in CSV format.
-
-    Args:
-        data (list): A list of dictionaries containing census data.
-        year (int): The year of the census data.
-        output_path (str): The path to the output file to be created.
-
-    Summary:
-        This function searches for a pattern in the input string that matches
-        'Source code: <code>' and extracts the source code.
-    """
-
-    source_line = re.compile(r'(Source code:)(\s*)(.*)')
-    source_search = source_line.search(line)
-
-    if source_search:
-        source_code = source_search.group(3)
-    
-    return source_code
-
-def get_nhgis(line: str) -> str:
-    """
-    Extracts the NHGIS code from a given line of text.
-
-    Args:
-        line (str): A line of text that potentially contains the NHGIS code.
-
-    Returns:
-        str: The extracted NHGIS code if the pattern is found, otherwise None.
-
-    Summary:
-        This function searches for a pattern in the input string that matches
-        'NHGIS code: <code>' and extracts the NHGIS code.
-    """
-
-    nhgis_line = re.compile(r'(NHGIS code:)(\s*)(.*)')
-    nhgis_search = nhgis_line.search(line)
-
-    if nhgis_search:
-        nhgis_code = nhgis_search.group(3)
-
-    return nhgis_code
 
 def census_data_api(acs_tables: list, year: int, output_path: str) -> None:
     """
@@ -196,49 +122,6 @@ def census_data_api(acs_tables: list, year: int, output_path: str) -> None:
 
             for row in data:
                 outfile.write(','.join(str(row[col]) for col in columns) + '\n')
-
-def get_dict(input_path: str) -> Dict:
-    """
-    Parses an input file to create a dictionary mapping NHGIS codes to Source codes.
-    
-    Args:
-        input_path (str): The path to the input file to be processed.
-    
-    Returns:
-        dict: A dictionary where the keys are NHGIS codes and the values are Source codes.
-    
-    Summary:
-        The function reads the input file line by line, extracting Source codes and NHGIS codes
-        using the `get_source` and `get_nhgis` functions, respectively. If both codes are successfully
-        extracted from a line, they are added to the dictionary. The process continues until the end
-        of the file is reached.
-    """
-
-    dict_cd: Dict = {}
-    source_code: str = None
-    nhgis_code: str = None
-
-    with incoming(input_path) as infile:
-        line = infile.readline()
-        
-        while line:
-            line = infile.readline()
-
-            try:
-                source_code = get_source(line)
-            except:
-                pass
-
-            try:
-                nhgis_code = get_nhgis(line)
-            except:
-                pass
-
-            if None not in (source_code, nhgis_code):
-                dict_cd[nhgis_code] = source_code
-                source_code, nhgis_code = None, None
-    
-    return dict_cd
 
 def state_to_postal(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -479,9 +362,6 @@ X_test_geoid = pd.DataFrame(X_test['GEO_ID'])
 X_train = X_train[X_train['state'].isin(state_fips)]
 X_test = X_test[X_test['state'].isin(state_fips)]
 
-X_train = X_train[X_train['congressional district'] != 'ZZ']
-X_test = X_test[X_test['congressional district'] != 'ZZ']
-
 X_train_cols = [col for col in X_train.columns if col not in context_fields]
 X_test_cols = [col for col in X_test.columns if col not in context_fields]
 
@@ -508,7 +388,8 @@ feature_contributions_df = generate_feature_importance(common_cols, model_svd)
 X_train = pd.concat([X_train_geoid, X_train_svd], axis=1)
 X_test = pd.concat([X_test_geoid, X_test_svd], axis=1)
 
-y['GEO_ID'] = '5001800US' + y['state_fips'].astype(str).str.zfill(2) + y['district'].astype(str).str.zfill(2)
+y.loc[y['year'] == 2020, 'GEO_ID'] = '5001600US' + y['state_fips'].astype(str).str.zfill(2) + y['district'].astype(str).str.zfill(2)
+y.loc[y['year'] == 2022, 'GEO_ID'] = '5001800US' + y['state_fips'].astype(str).str.zfill(2) + y['district'].astype(str).str.zfill(2)
 
 y_train = y[
     (y['year'] == 2020) & 
