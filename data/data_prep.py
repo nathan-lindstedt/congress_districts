@@ -186,7 +186,8 @@ def census_data_api(dict_values: list, year: int, output_path: str) -> None:
 
     # Experimental: This isn't working as expected and needs further development and testing.
     # Per the Census library documentation, the get() method needs to use chunking for API requests
-    # larger than 50 variables matched on GEO_ID. This is a work in progress.
+    # larger than 50 variables matched on GEO_ID. This is a work in progress. The data doesn't seem
+    # to be correct when compared to the NHGIS data.
     with outgoing(output_path) as outfile:
         data = c.acs5.get(acs_variables, geo={'for': 'congressional district:*', 'in': 'state:*'})
 
