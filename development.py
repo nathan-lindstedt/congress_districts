@@ -25,8 +25,8 @@ start: str = os.path.dirname(__file__)
 
 #%%
 # Load the data, split into training and testing sets, and preprocess
-model_one_columns: List = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
-model_two_columns: List = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'REP', 'REP_indicator']
+model_one_columns: List = ['0', '1']
+model_two_columns: List = ['0', '1', 'REP', 'REP_indicator']
 
 target_column: str = 'party_REP'
 drop_column: str = 'REP_indicator'
