@@ -2,13 +2,15 @@
 # Import libraries
 import os
 
+import numpy as np
 import pandas as pd
-import re
 
 from contextlib import contextmanager
 from logging import exception
+from pathlib import Path
 from typing import Dict, List
 
+from census import Census
 from sklearn.decomposition import TruncatedSVD
 
 #%%
@@ -31,53 +33,97 @@ context_fields: List = ['GISJOIN','YEAR','STUSAB',
                         'SDUNIA','PCI','PUMAA',
                         'GEOID','BTTRA','BTBGA',
                         'NAME_E','GEO_ID','TL_GEO_ID',
-                        'NAME_M','AITSA']
+                        'NAME_M','AITSA', 'state', 
+                        'congressional district']
+
+state_fips: List = [1, 2, 4,
+                    5, 6, 8,
+                    9, 10, 12,
+                    13, 15, 16,
+                    17, 18, 19, 
+                    20, 21, 22,
+                    23, 24, 25,
+                    26, 27, 28, 
+                    29, 30, 31, 
+                    32, 33, 34, 
+                    35, 36, 37,
+                    38, 39, 40, 
+                    41, 42, 44, 
+                    45, 46, 47, 
+                    48, 49, 50, 
+                    51, 53, 54, 
+                    55, 56]
 
 party_cols: List = ['REP', 'DEM']
 
 #%%
 # Data preparation functions
 @contextmanager
-def incoming(input_path: str) -> object:
+def outgoing(output_path: str) -> object:
     """
-    Context manager for opening a file with the specified input path.
+    Context manager for opening a file with the specified output path.
 
     Args:
-        input_path (str): The path to the file to be opened.
+        output_path (str): The path to the file to be opened.
 
     Yields:
-        object: The file object opened in read mode with 'Windows-1252' encoding.
+        object: The file object opened in write mode with 'Windows-1252' encoding.
 
     Raises:
-        FileNotFoundError: If the file specified by input_path does not exist.
-        Exception: For any other exceptions that occur during file opening.
+        Exception: For any exceptions that occur during file opening.
 
     Example:
-        with incoming('path/to/file.txt') as file:
-            # Process the file
-            data = file.read()
+        with outgoing('path/to/file.txt') as file:
+            # Write to the file
+            file.write('Hello, World!')
     """
 
     try:
-        infile = open(input_path, 'r', encoding='Windows-1252') 
-    except FileNotFoundError as incoming_error:
-        exception(incoming_error)
-    except Exception as incoming_e:
-        exception(incoming_e)
+        outfile = open(output_path, 'w', encoding='Windows-1252')
+    except Exception as outgoing_e:
+        exception(outgoing_e)
     else:
-        yield infile
+        yield outfile
     finally:
-        infile.close()
+        outfile.close()
 
-def get_source(line: str) -> str:
+@contextmanager
+def outgoing(output_path: str) -> object:
     """
-    Extracts the source code from a given line of text.
-    
+    Context manager for opening a file with the specified output path.
+
     Args:
-        line (str): A line of text potentially containing the Source code.
-    
-    Returns:
-        str: The extracted source code if the pattern is found, otherwise None.
+        output_path (str): The path to the file to be opened.
+
+    Yields:
+        object: The file object opened in write mode with 'Windows-1252' encoding.
+
+    Raises:
+        Exception: For any exceptions that occur during file opening.
+
+    Example:
+        with outgoing('path/to/file.txt') as file:
+            # Write to the file
+            file.write('Hello, World!')
+    """
+
+    try:
+        outfile = open(output_path, 'w', encoding='Windows-1252')
+    except Exception as outgoing_e:
+        exception(outgoing_e)
+    else:
+        yield outfile
+    finally:
+        outfile.close()
+
+def census_data_api(acs_tables: list, year: int, output_path: str) -> None:
+    """
+    Writes data from Census API to a file in CSV format.
+
+    Args:
+        data (list): A list of dictionaries containing census data.
+        year (int): The year of the census data.
+        output_path (str): The path to the output file to be created.
 
     Summary:
         This function searches for a pattern in the input string that matches
@@ -114,6 +160,39 @@ def get_nhgis(line: str) -> str:
         nhgis_code = nhgis_search.group(3)
 
     return nhgis_code
+
+def census_data_api(dict_values: list, year: int, output_path: str) -> None:
+    """
+    Writes data from Census API to a file in CSV format.
+
+    Args:
+        data (list): A list of dictionaries containing census data.
+        year (int): The year of the census data.
+        output_path (str): The path to the output file to be created.
+
+    Summary:
+        The function writes the data to the output file in CSV format. The first
+        row of the file contains the column names, and the subsequent rows contain
+        the data values.
+    """
+    
+    api_key = open(os.path.relpath(f'../data/api_key.txt', start=start), 'r').readline()
+    c = Census(api_key)
+    c.acs5.tables(year=year)
+    acs_dict = c.acs5.fields(year=year)
+
+    acs_variables = [key for key, value in acs_dict.items() if value['group'] in dict_values]
+    acs_variables += [attr for _, value in acs_dict.items() if value['group'] in dict_values for attr in value['attributes'].split(',') if 'A' not in attr]
+
+    with outgoing(output_path) as outfile:
+        data = c.acs5.get(acs_variables, geo={'for': 'congressional district:*', 'in': 'state:*'})
+
+        if data:
+            columns = list(data[0].keys())
+            outfile.write(','.join(columns) + '\n')
+
+            for row in data:
+                outfile.write(','.join(str(row[col]) for col in columns) + '\n')
 
 def get_dict(input_path: str) -> Dict:
     """
@@ -157,33 +236,6 @@ def get_dict(input_path: str) -> Dict:
                 source_code, nhgis_code = None, None
     
     return dict_cd
-
-def rename_df_columns(df: pd.DataFrame, dict_cd: Dict) -> tuple:
-    """
-    Renames the columns of a DataFrame based on a provided dictionary of codes.
-
-    Args:
-        X_df (pd.DataFrame): The DataFrame whose columns are to be renamed.
-        dict_cd (dict): A dictionary where keys are substrings to be replaced in the column names,
-                        and values are the corresponding replacements.
-
-    Returns:
-        tuple: A tuple containing the list of renamed columns and the DataFrame with renamed columns.
-    """
-    
-    column_list: List = list(df.columns)
-    rename_list: List = []
-
-    for index, data in enumerate(column_list):
-        for key, value in dict_cd.items():
-            if key in data:
-                column_list[index] = data.replace(key, value + '_')
-                underscore_index = column_list[index].find('_')
-                if underscore_index != -1 and underscore_index + 1 < len(column_list[index]):
-                    column_list[index] = column_list[index][:underscore_index + 1] + column_list[index][underscore_index + 2:] + column_list[index][underscore_index + 1]
-                rename_list.append(column_list[index])
-
-    return rename_list, df.set_axis(column_list, axis=1).dropna(axis=1)
 
 def state_to_postal(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -339,7 +391,7 @@ def reduce_dimensions_svd(X_train: pd.DataFrame, X_test: pd.DataFrame, common_co
 
     svd_performance: List = []
 
-    base = X_train.shape[0]//10
+    base = X_train.shape[0]//2
     scree = range(1, X_train.shape[1]//base)
 
     for n in scree:
@@ -391,9 +443,24 @@ def generate_feature_importance(common_cols: List, model_svd: TruncatedSVD) -> p
 
 
 #%%
+# Note: This process can take > 30 mins. per file to complete and requires a Census API key to be stored 
+# in a text file named 'api_key.txt' located in the local 'data' directory.
+
+# Get Census API data if not already downloaded
+if not Path(os.path.relpath(f'../data/census_data_2020.csv', start=start)).exists():
+    dict_cd116 = get_dict(os.path.relpath(f'../data/cd116th_codebook.txt', start=start))
+    dict_cd116_values = list(dict_cd116.values())
+    census_data_api(dict_cd116_values, 2020, os.path.relpath(f'../data/census_data_2020.csv', start=start))
+
+if not Path(os.path.relpath(f'../data/census_data_2022.csv', start=start)).exists():
+    dict_cd118 = get_dict(os.path.relpath(f'../data/cd118th_codebook.txt', start=start))
+    dict_cd118_values = list(dict_cd118.values())
+    census_data_api(dict_cd118_values, 2022, os.path.relpath(f'../data/census_data_2022.csv', start=start))
+
+#%%
 # Load the data
-X_train = pd.read_csv(os.path.relpath(f'nhgis0002_ds249_20205_cd116th.csv', start=start), low_memory=False)
-X_test = pd.read_csv(os.path.relpath(f'nhgis0001_ds262_20225_cd118th.csv', start=start), low_memory=False)
+X_train = pd.read_csv(os.path.relpath(f'../data/census_data_2020.csv', start=start), low_memory=False)
+X_test = pd.read_csv(os.path.relpath(f'../data/census_data_2022.csv', start=start), low_memory=False)
 
 y = pd.read_csv(os.path.relpath(f'house_outcomes_historical.csv', start=start), low_memory=False)
 y['party'] = y['party'].str[:3]
@@ -402,25 +469,28 @@ poll = pd.read_csv(os.path.relpath(f'538_house_polls_historical.csv', start=star
 poll['state_po'] = state_to_postal(poll)
 
 #%%
-# Get source and NHGIS code
-dict_cd116 = get_dict(os.path.relpath(f'cd116th_codebook.txt', start=start))
-dict_cd118 = get_dict(os.path.relpath(f'cd118th_codebook.txt', start=start))
+# Filter columns
+X_train_geoid = pd.DataFrame(X_train['GEO_ID'])
+X_test_geoid = pd.DataFrame(X_test['GEO_ID'])
 
-#%%
-# Rename columns
-X_train_gisjoin = pd.DataFrame(X_train['GISJOIN'])
-X_test_gisjoin = pd.DataFrame(X_test['GISJOIN'])
+X_train = X_train[X_train['state'].isin(state_fips)]
+X_test = X_test[X_test['state'].isin(state_fips)]
+
+X_train = X_train[X_train['congressional district'] != 'ZZ']
+X_test = X_test[X_test['congressional district'] != 'ZZ']
 
 X_train_cols = [col for col in X_train.columns if col not in context_fields]
 X_test_cols = [col for col in X_test.columns if col not in context_fields]
 
-#%%
-X_train_rename, X_train = rename_df_columns(X_train[X_train_cols], dict_cd116)
-X_test_rename, X_test = rename_df_columns(X_test[X_test_cols], dict_cd118)
+X_train = X_train[X_train_cols]
+X_test = X_test[X_test_cols]
+
+X_train = X_train.loc[:, (X_train >= 0).all()]
+X_test = X_test.loc[:, (X_test >= 0).all()]
 
 #%%
 # Keep common columns
-common_cols = list(set(X_train.columns) & set(X_test.columns))
+common_cols = sorted(list(set(X_train.columns) & set(X_test.columns)))
 
 X_train = X_train[common_cols].sort_index(axis=1)
 X_test = X_test[common_cols].sort_index(axis=1)
@@ -432,37 +502,37 @@ feature_contributions_df = generate_feature_importance(common_cols, model_svd)
 
 #%%
 # Preprocessing
-X_train = pd.concat([X_train_gisjoin, X_train_svd], axis=1)
-X_test = pd.concat([X_test_gisjoin, X_test_svd], axis=1)
+X_train = pd.concat([X_train_geoid, X_train_svd], axis=1)
+X_test = pd.concat([X_test_geoid, X_test_svd], axis=1)
 
-y['GISJOIN'] = 'G' + y['state_fips'].astype(str).str.zfill(2) + y['district'].astype(str).str.zfill(3)
+y['GEO_ID'] = '5001800US' + y['state_fips'].astype(str).str.zfill(2) + y['district'].astype(str).str.zfill(2)
 
 y_train = y[
     (y['year'] == 2020) & 
-    (y['candidatevotes'] == y.groupby(['GISJOIN', 'year'])['candidatevotes'].transform('max'))
+    (y['candidatevotes'] == y.groupby(['GEO_ID', 'year'])['candidatevotes'].transform('max'))
 ]
 
 y_test = y[
     (y['year'] == 2022) & 
-    (y['candidatevotes'] == y.groupby(['GISJOIN', 'year'])['candidatevotes'].transform('max'))
+    (y['candidatevotes'] == y.groupby(['GEO_ID', 'year'])['candidatevotes'].transform('max'))
 ]
 
 avg_train = preprocess_poll_data(poll, 2020).merge(
-    y_train[['state_po', 'district', 'GISJOIN']], on=['state_po', 'district']
-).pivot(index='GISJOIN', columns='party', values='pct').reset_index()
+    y_train[['state_po', 'district', 'GEO_ID']], on=['state_po', 'district']
+).pivot(index='GEO_ID', columns='party', values='pct').reset_index()
 
 avg_test = preprocess_poll_data(poll, 2022).merge(
-    y_test[['state_po', 'district', 'GISJOIN']], on=['state_po', 'district']
-).pivot(index='GISJOIN', columns='party', values='pct').reset_index()
+    y_test[['state_po', 'district', 'GEO_ID']], on=['state_po', 'district']
+).pivot(index='GEO_ID', columns='party', values='pct').reset_index()
 
 y_train = pd.get_dummies(y_train, prefix=['party'], columns=['party']).query('totalvotes > 0')
 y_test = pd.get_dummies(y_test, prefix=['party'], columns=['party']).query('totalvotes > 0')
 
-X_train = X_train.merge(avg_train, on='GISJOIN', how='left')
-X_test = X_test.merge(avg_test, on='GISJOIN', how='left')
+X_train = X_train.merge(avg_train, on='GEO_ID', how='left')
+X_test = X_test.merge(avg_test, on='GEO_ID', how='left')
 
-train_set = create_indicator_columns(y_train.merge(X_train, on='GISJOIN'), party_cols)
-test_set = create_indicator_columns(y_test.merge(X_test, on='GISJOIN'), party_cols)
+train_set = create_indicator_columns(y_train.merge(X_train, on='GEO_ID'), party_cols)
+test_set = create_indicator_columns(y_test.merge(X_test, on='GEO_ID'), party_cols)
 
 #%%
 # Export data

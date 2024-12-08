@@ -1,0 +1,2046 @@
+Tables:
+ 
+1. Sex by Age
+   Universe:    Total population
+   Source code: B01001
+   NHGIS code:  AQM4
+ 
+2. Median Age by Sex
+   Universe:    Total population
+   Source code: B01002
+   NHGIS code:  AQM5
+ 
+3. Median Age by Sex (White Alone)
+   Universe:    People who are White alone
+   Source code: B01002A
+   NHGIS code:  AQM6
+ 
+4. Median Age by Sex (Black or African American Alone)
+   Universe:    People who are Black or African American alone
+   Source code: B01002B
+   NHGIS code:  AQM7
+ 
+5. Median Age by Sex (American Indian and Alaska Native Alone)
+   Universe:    People who are American Indian and Alaska Native alone
+   Source code: B01002C
+   NHGIS code:  AQM8
+ 
+6. Median Age by Sex (Asian Alone)
+   Universe:    People who are Asian alone
+   Source code: B01002D
+   NHGIS code:  AQM9
+ 
+7. Median Age by Sex (Native Hawaiian and Other Pacific Islander Alone)
+   Universe:    People who are Native Hawaiian and Other Pacific Islander alone
+   Source code: B01002E
+   NHGIS code:  AQNA
+ 
+8. Median Age by Sex (Some Other Race Alone)
+   Universe:    People who are Some Other Race alone
+   Source code: B01002F
+   NHGIS code:  AQNB
+ 
+9. Median Age by Sex (Two or More Races)
+   Universe:    People who are Two or More Races
+   Source code: B01002G
+   NHGIS code:  AQNC
+ 
+10. Median Age by Sex (White Alone, Not Hispanic or Latino)
+    Universe:    White alone, not Hispanic or Latino population
+    Source code: B01002H
+    NHGIS code:  AQND
+ 
+11. Median Age by Sex (Hispanic or Latino)
+    Universe:    People who are Hispanic or Latino
+    Source code: B01002I
+    NHGIS code:  AQNE
+ 
+12. Total Population
+    Universe:    Total population
+    Source code: B01003
+    NHGIS code:  AQNF
+ 
+13. Race
+    Universe:    Total population
+    Source code: B02001
+    NHGIS code:  AQNG
+ 
+14. Detailed Race
+    Universe:    Total population
+    Source code: C02003
+    NHGIS code:  AQNH
+ 
+15. White Alone or in Combination with One or More Other Races
+    Universe:    White alone or in combination with one or more other races
+    Source code: B02008
+    NHGIS code:  AQNI
+ 
+16. Black or African American Alone or in Combination with One or More Other Races
+    Universe:    Black or African American alone or in combination with one or more other races
+    Source code: B02009
+    NHGIS code:  AQNJ
+ 
+17. American Indian and Alaska Native Alone or in Combination with One or More Other Races
+    Universe:    People who are American Indian or Alaska Native alone or in combination with one or more other races
+    Source code: B02010
+    NHGIS code:  AQNK
+ 
+18. Asian Alone or in Combination with One or More Other Races
+    Universe:    Asian alone or in combination with one or more other races
+    Source code: B02011
+    NHGIS code:  AQNL
+ 
+19. Native Hawaiian and Other Pacific Islander Alone or in Combination with One or More Other Races
+    Universe:    Native Hawaiian and Other Pacific Islander alone or in combination with one or more other races
+    Source code: B02012
+    NHGIS code:  AQNM
+ 
+20. Some Other Race Alone or in Combination with One or More Other Races
+    Universe:    Some Other Race alone or in combination with one or more other races
+    Source code: B02013
+    NHGIS code:  AQNN
+ 
+21. Hispanic or Latino Origin by Race
+    Universe:    Total population
+    Source code: B03002
+    NHGIS code:  AQNO
+ 
+22. Hispanic or Latino Origin
+    Universe:    Total population
+    Source code: B03003
+    NHGIS code:  AQNP
+ 
+23. Geographical Mobility in the Past Year for Current Residence--Metropolitan Statistical Area Level in the United States
+    Universe:    Population 1 year and over living in a Metropolitan Statistical Area in the United States
+    Source code: B07201
+    NHGIS code:  AQNQ
+ 
+24. Geographical Mobility in the Past Year for Current Residence--Metropolitan Statistical Area Level in Puerto Rico
+    Universe:    Population 1 year and over living in a Metropolitan Statistical Area in Puerto Rico
+    Source code: B07201PR
+    NHGIS code:  AQNR
+ 
+25. Geographical Mobility in the Past Year for Current Residence--Micropolitan Statistical Area Level in the United States
+    Universe:    Population 1 year and over living in a Micropolitan Statistical Area in the United States
+    Source code: B07202
+    NHGIS code:  AQNS
+ 
+26. Geographical Mobility in the Past Year for Current Residence--Micropolitan Statistical Area Level in Puerto Rico
+    Universe:    Population 1 year and over living in a Micropolitan Statistical Area in Puerto Rico
+    Source code: B07202PR
+    NHGIS code:  AQNT
+ 
+27. Geographical Mobility in the Past Year for Current Residence--Not Metropolitan or Micropolitan Statistical Area Level in the United States
+    Universe:    Population 1 year and over not living in a Metropolitan or Micropolitan Statistical Area in the United States
+    Source code: B07203
+    NHGIS code:  AQNU
+ 
+28. Geographical Mobility in the Past Year for Current Residence--Not Metropolitan or Micropolitan Statistical Area Level in Puerto Rico
+    Universe:    Population 1 year and over not living in a Metropolitan or Micropolitan Statistical Area in Puerto Rico
+    Source code: B07203PR
+    NHGIS code:  AQNV
+ 
+29. Sex of Workers by Place of Work--State and County Level
+    Universe:    Workers 16 years and over
+    Source code: B08007
+    NHGIS code:  AQNW
+ 
+30. Sex of Workers by Place of Work--Place Level
+    Universe:    Workers 16 years and over
+    Source code: B08008
+    NHGIS code:  AQNX
+ 
+31. Sex of Workers by Place of Work--Minor Civil Division Level for 12 Selected States (CT, ME, MA, MI, MN, NH, NJ, NY, PA, RI, VT, WI)
+    Universe:    Workers 16 years and over
+    Source code: B08009
+    NHGIS code:  AQNY
+ 
+32. Place of Work for Workers 16 Years and Over--Metropolitan Statistical Area Level
+    Universe:    Workers 16 years and over living in a Metropolitan Statistical Area
+    Source code: B08016
+    NHGIS code:  AQNZ
+ 
+33. Place of Work for Workers 16 Years and Over--Micropolitan Statistical Area Level
+    Universe:    Workers 16 years and over living in a Micropolitan Statistical Area
+    Source code: B08017
+    NHGIS code:  AQN0
+ 
+34. Place of Work for Workers 16 Years and Over--Not Metropolitan or Micropolitan Statistical Area Level
+    Universe:    Workers 16 years and over not living in a Metropolitan or Micropolitan Statistical Area
+    Source code: B08018
+    NHGIS code:  AQN1
+ 
+35. Means of Transportation to Work by Travel Time to Work
+    Universe:    Workers 16 years and over who did not work from home
+    Source code: B08134
+    NHGIS code:  AQN2
+ 
+36. Aggregate Travel Time to Work (in Minutes) of Workers by Travel Time to Work
+    Universe:    Workers 16 years and over who did not work from home
+    Source code: B08135
+    NHGIS code:  AQN3
+ 
+37. Aggregate Travel Time to Work (in Minutes) of Workers by Means of Transportation to Work
+    Universe:    Workers 16 years and over who did not work from home
+    Source code: B08136
+    NHGIS code:  AQN4
+ 
+38. Means of Transportation to Work
+    Universe:    Workers 16 years and over
+    Source code: B08301
+    NHGIS code:  AQN5
+ 
+39. Time of Departure to Go to Work
+    Universe:    Workers 16 years and over who did not work from home
+    Source code: B08302
+    NHGIS code:  AQN6
+ 
+40. Travel Time to Work
+    Universe:    Workers 16 years and over who did not work from home
+    Source code: B08303
+    NHGIS code:  AQN7
+ 
+41. Own Children Under 18 Years by Family Type and Age
+    Universe:    Own children under 18 years
+    Source code: B09002
+    NHGIS code:  AQN8
+ 
+42. Relationship to Householder for Children Under 18 Years in Households
+    Universe:    Population under 18 years in households (excluding householders, spouses, and unmarried partners)
+    Source code: B09018
+    NHGIS code:  AQN9
+ 
+43. Household Type (Including Living Alone) by Relationship
+    Universe:    Total population
+    Source code: B09019
+    NHGIS code:  AQOA
+ 
+44. Relationship by Household Type (Including Living Alone) for the Population 65 Years and Over
+    Universe:    Population 65 years and over
+    Source code: B09020
+    NHGIS code:  AQOB
+ 
+45. Living Arrangements of Adults 18 Years and Over by Age
+    Universe:    Population 18 years and over in households
+    Source code: B09021
+    NHGIS code:  AQOC
+ 
+46. Household Type (Including Living Alone)
+    Universe:    Households
+    Source code: B11001
+    NHGIS code:  AQOD
+ 
+47. Household Type (Including Living Alone) (White Alone)
+    Universe:    Households with a householder who is White alone
+    Source code: B11001A
+    NHGIS code:  AQOE
+ 
+48. Household Type (Including Living Alone) (Black or African American Alone)
+    Universe:    Households with a householder who is Black or African American alone
+    Source code: B11001B
+    NHGIS code:  AQOF
+ 
+49. Household Type (Including Living Alone) (American Indian and Alaska Native Alone)
+    Universe:    Households with a householder who is American Indian and Alaska Native alone
+    Source code: B11001C
+    NHGIS code:  AQOG
+ 
+50. Household Type (Including Living Alone) (Asian Alone)
+    Universe:    Households with a householder who is Asian alone
+    Source code: B11001D
+    NHGIS code:  AQOH
+ 
+51. Household Type (Including Living Alone) (Native Hawaiian and Other Pacific Islander Alone)
+    Universe:    Households with a householder who is Native Hawaiian and Other Pacific Islander alone
+    Source code: B11001E
+    NHGIS code:  AQOI
+ 
+52. Household Type (Including Living Alone) (Some Other Race Alone)
+    Universe:    Households with a householder who is Some Other Race alone
+    Source code: B11001F
+    NHGIS code:  AQOJ
+ 
+53. Household Type (Including Living Alone) (Two or More Races)
+    Universe:    Households with a householder who is Two or More Races
+    Source code: B11001G
+    NHGIS code:  AQOK
+ 
+54. Household Type (Including Living Alone) (White Alone, Not Hispanic or Latino)
+    Universe:    Households with a householder who is White alone, not Hispanic or Latino
+    Source code: B11001H
+    NHGIS code:  AQOL
+ 
+55. Household Type (Including Living Alone) (Hispanic or Latino)
+    Universe:    Households with a householder who is Hispanic or Latino
+    Source code: B11001I
+    NHGIS code:  AQOM
+ 
+56. Household Type by Relatives and Nonrelatives for Population in Households
+    Universe:    Population in households
+    Source code: B11002
+    NHGIS code:  AQON
+ 
+57. Household Type by Relatives and Nonrelatives for Population in Households (White Alone)
+    Universe:    Population in households with a householder who is White alone
+    Source code: B11002A
+    NHGIS code:  AQOO
+ 
+58. Household Type by Relatives and Nonrelatives for Population in Households (Black or African American Alone)
+    Universe:    Population in households with a householder who is Black or African American alone
+    Source code: B11002B
+    NHGIS code:  AQOP
+ 
+59. Household Type by Relatives and Nonrelatives for Population in Households (American Indian and Alaska Native Alone)
+    Universe:    Population in households with a householder who is American Indian and Alaska Native alone
+    Source code: B11002C
+    NHGIS code:  AQOQ
+ 
+60. Household Type by Relatives and Nonrelatives for Population in Households (Asian Alone)
+    Universe:    Population in households with a householder who is Asian alone
+    Source code: B11002D
+    NHGIS code:  AQOR
+ 
+61. Household Type by Relatives and Nonrelatives for Population in Households (Native Hawaiian and Other Pacific Islander Alone)
+    Universe:    Population in households with a householder who is Native Hawaiian and Other Pacific Islander alone
+    Source code: B11002E
+    NHGIS code:  AQOS
+ 
+62. Household Type by Relatives and Nonrelatives for Population in Households (Some Other Race Alone)
+    Universe:    Population in households with a householder who is Some Other Race alone
+    Source code: B11002F
+    NHGIS code:  AQOT
+ 
+63. Household Type by Relatives and Nonrelatives for Population in Households (Two or More Races)
+    Universe:    Population in households with a householder who is Two or More Races
+    Source code: B11002G
+    NHGIS code:  AQOU
+ 
+64. Household Type by Relatives and Nonrelatives for Population in Households (White Alone, Not Hispanic or Latino)
+    Universe:    Population in households with a householder who is White alone, not Hispanic or Latino
+    Source code: B11002H
+    NHGIS code:  AQOV
+ 
+65. Household Type by Relatives and Nonrelatives for Population in Households (Hispanic or Latino)
+    Universe:    Population in households with a householder who is Hispanic or Latino
+    Source code: B11002I
+    NHGIS code:  AQOW
+ 
+66. Family Type by Presence and Age of Own Children Under 18 Years
+    Universe:    Families
+    Source code: B11003
+    NHGIS code:  AQOX
+ 
+67. Family Type by Presence and Age of Related Children Under 18 Years
+    Universe:    Families
+    Source code: B11004
+    NHGIS code:  AQOY
+ 
+68. Households by Presence of People Under 18 Years by Household Type
+    Universe:    Households
+    Source code: B11005
+    NHGIS code:  AQOZ
+ 
+69. Households by Presence of People 60 Years and Over by Household Type
+    Universe:    Households
+    Source code: B11006
+    NHGIS code:  AQO0
+ 
+70. Households by Presence of People 65 Years and Over, Household Size and Household Type
+    Universe:    Households
+    Source code: B11007
+    NHGIS code:  AQO1
+ 
+71. Cohabiting Couple Households by Presence and Age of Own Children Under 18 Years
+    Universe:    Households
+    Source code: B11008
+    NHGIS code:  AQO2
+ 
+72. Households by Type
+    Universe:    Households
+    Source code: B11012
+    NHGIS code:  AQO3
+ 
+73. Households by Presence of Nonrelatives
+    Universe:    Households
+    Source code: B11015
+    NHGIS code:  AQO4
+ 
+74. Household Type by Household Size
+    Universe:    Households
+    Source code: B11016
+    NHGIS code:  AQO5
+ 
+75. Sex by Marital Status for the Population 15 Years and Over
+    Universe:    Population 15 years and over
+    Source code: B12001
+    NHGIS code:  AQO6
+ 
+76. Sex by School Enrollment by Level of School by Type of School for the Population 3 Years and Over
+    Universe:    Population 3 years and over
+    Source code: B14002
+    NHGIS code:  AQO7
+ 
+77. Sex by School Enrollment by Educational Attainment by Employment Status for the Population 16 to 19 Years
+    Universe:    Population 16 to 19 years
+    Source code: B14005
+    NHGIS code:  AQO8
+ 
+78. School Enrollment by Detailed Level of School for the Population 3 Years and Over
+    Universe:    Population 3 years and over
+    Source code: B14007
+    NHGIS code:  AQO9
+ 
+79. School Enrollment by Detailed Level of School for the Population 3 Years and Over (White Alone)
+    Universe:    White alone population 3 years and over
+    Source code: B14007A
+    NHGIS code:  AQPA
+ 
+80. School Enrollment by Detailed Level of School for the Population 3 Years and Over (Black or African American Alone)
+    Universe:    Black or African American alone population 3 years and over
+    Source code: B14007B
+    NHGIS code:  AQPB
+ 
+81. School Enrollment by Detailed Level of School for the Population 3 Years and Over (American Indian and Alaska Native Alone)
+    Universe:    American Indian and Alaska Native alone population 3 years and over
+    Source code: B14007C
+    NHGIS code:  AQPC
+ 
+82. School Enrollment by Detailed Level of School for the Population 3 Years and Over (Asian Alone)
+    Universe:    Asian alone population 3 years and over
+    Source code: B14007D
+    NHGIS code:  AQPD
+ 
+83. School Enrollment by Detailed Level of School for the Population 3 Years and Over (Native Hawaiian and Other Pacific Islander Alone)
+    Universe:    Native Hawaiian and Other Pacific Islander alone population 3 years and over
+    Source code: B14007E
+    NHGIS code:  AQPE
+ 
+84. School Enrollment by Detailed Level of School for the Population 3 Years and Over (Some Other Race Alone)
+    Universe:    Some Other Race alone population 3 years and over
+    Source code: B14007F
+    NHGIS code:  AQPF
+ 
+85. School Enrollment by Detailed Level of School for the Population 3 Years and Over (Two or More Races)
+    Universe:    Two or More Races population 3 years and over
+    Source code: B14007G
+    NHGIS code:  AQPG
+ 
+86. School Enrollment by Detailed Level of School for the Population 3 Years and Over (White Alone, Not Hispanic or Latino)
+    Universe:    White alone, not Hispanic or Latino, population 3 years and over
+    Source code: B14007H
+    NHGIS code:  AQPH
+ 
+87. School Enrollment by Detailed Level of School for the Population 3 Years and Over (Hispanic or Latino)
+    Universe:    Hispanic or Latino population 3 years and over
+    Source code: B14007I
+    NHGIS code:  AQPI
+ 
+88. Sex by Educational Attainment for the Population 25 Years and Over
+    Universe:    Population 25 years and over
+    Source code: B15002
+    NHGIS code:  AQPJ
+ 
+89. Educational Attainment for the Population 25 Years and Over
+    Universe:    Population 25 years and over
+    Source code: B15003
+    NHGIS code:  AQPK
+ 
+90. Field of Bachelor's Degree for First Major for the Population 25 Years and Over
+    Universe:    Population 25 years and over with a bachelor's degree or higher attainment
+    Source code: C15010
+    NHGIS code:  AQPL
+ 
+91. Field of Bachelor's Degree for First Major the Population 25 Years and Over (White Alone)
+    Universe:    White alone population 25 years and over with a bachelor's degree or higher attainment
+    Source code: C15010A
+    NHGIS code:  AQPM
+ 
+92. Field of Bachelor's Degree for First Major the Population 25 Years and Over (Black or African American Alone)
+    Universe:    Black or African American alone population 25 years and over with a bachelor's degree or higher attainment
+    Source code: C15010B
+    NHGIS code:  AQPN
+ 
+93. Field of Bachelor's Degree for First Major the Population 25 Years and Over (American Indian and Alaska Native Alone)
+    Universe:    American Indian and Alaska Native alone population 25 years and over with a bachelor's degree or higher attainment
+    Source code: C15010C
+    NHGIS code:  AQPO
+ 
+94. Field of Bachelor's Degree for First Major the Population 25 Years and Over (Asian Alone)
+    Universe:    Asian alone population 25 years and over with a bachelor's degree or higher attainment
+    Source code: C15010D
+    NHGIS code:  AQPP
+ 
+95. Field of Bachelor's Degree for First Major the Population 25 Years and Over (Native Hawaiian and Other Pacific Islander Alone)
+    Universe:    Native Hawaiian and Other Pacific Islander alone population 25 years and over with a bachelor's degree or higher attainment
+    Source code: C15010E
+    NHGIS code:  AQPQ
+ 
+96. Field of Bachelor's Degree for First Major the Population 25 Years and Over (Some Other Race Alone)
+    Universe:    Some Other Race alone population 25 years and over with a bachelor's degree or higher attainment
+    Source code: C15010F
+    NHGIS code:  AQPR
+ 
+97. Field of Bachelor's Degree for First Major the Population 25 Years and Over (Two or More Races)
+    Universe:    Two or More Races population 25 years and over with a bachelor's degree or higher attainment
+    Source code: C15010G
+    NHGIS code:  AQPS
+ 
+98. Field of Bachelor's Degree for First Major the Population 25 Years and Over (White Alone, Not Hispanic or Latino)
+    Universe:    White alone, not Hispanic or Latino population 25 years and over with a bachelor's degree or higher attainment
+    Source code: C15010H
+    NHGIS code:  AQPT
+ 
+99. Field of Bachelor's Degree for First Major the Population 25 Years and Over (Hispanic or Latino)
+    Universe:    Hispanic or Latino population 25 years and over with a bachelor's degree or higher attainment
+    Source code: C15010I
+    NHGIS code:  AQPU
+ 
+100. Sex by Age by Field of Bachelor's Degree for First Major for the Population 25 Years and Over
+     Universe:    Population 25 years and over with a bachelor's degree or higher attainment
+     Source code: B15011
+     NHGIS code:  AQPV
+ 
+101. Total Fields of Bachelor's Degrees Reported
+     Universe:    Population 25 years and over with a bachelor's degree or higher attainment
+     Source code: B15012
+     NHGIS code:  AQPW
+ 
+102. Household Language by Household Limited English Speaking Status
+     Universe:    Households
+     Source code: C16002
+     NHGIS code:  AQPX
+ 
+103. Age by Language Spoken at Home by Ability to Speak English for the Population 5 Years and Over
+     Universe:    Population 5 years and over
+     Source code: B16004
+     NHGIS code:  AQPY
+ 
+104. Ratio of Income to Poverty Level in the Past 12 Months
+     Universe:    Population for whom poverty status is determined
+     Source code: C17002
+     NHGIS code:  AQPZ
+ 
+105. Poverty Status in the Past 12 Months of Families by Family Type by Presence of Related Children Under 18 Years by Age of Related Children
+     Universe:    Families
+     Source code: B17010
+     NHGIS code:  AQP0
+ 
+106. Aggregate Income Deficit (Dollars) in the Past 12 Months for Families by Family Type
+     Universe:    Families with income in the past 12 months below the poverty level
+     Source code: B17011
+     NHGIS code:  AQP1
+ 
+107. Poverty Status in the Past 12 Months by Household Type by Age of Householder
+     Universe:    Households
+     Source code: B17017
+     NHGIS code:  AQP2
+ 
+108. Poverty Status of Individuals in the Past 12 Months by Living Arrangement
+     Universe:    Population for whom poverty status is determined
+     Source code: B17021
+     NHGIS code:  AQP3
+ 
+109. Poverty Status in the Past 12 Months of People in Housing Units
+     Universe:    Population in households for whom poverty status is determined
+     Source code: B17101
+     NHGIS code:  AQP4
+ 
+110. Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars)
+     Universe:    Households
+     Source code: B19001
+     NHGIS code:  AQP5
+ 
+111. Median Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars)
+     Universe:    Households
+     Source code: B19013
+     NHGIS code:  AQP6
+ 
+112. Aggregate Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars)
+     Universe:    Households
+     Source code: B19025
+     NHGIS code:  AQP7
+ 
+113. Aggregate Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (White Alone Householder)
+     Universe:    Households with a householder who is White alone
+     Source code: B19025A
+     NHGIS code:  AQP8
+ 
+114. Aggregate Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (Black or African American Alone Householder)
+     Universe:    Households with a householder who is Black or African American alone
+     Source code: B19025B
+     NHGIS code:  AQP9
+ 
+115. Aggregate Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (American Indian and Alaska Native Alone Householder)
+     Universe:    Households with a householder who is American Indian and Alaska Native alone
+     Source code: B19025C
+     NHGIS code:  AQQA
+ 
+116. Aggregate Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (Asian Alone Householder)
+     Universe:    Households with a householder who is Asian alone
+     Source code: B19025D
+     NHGIS code:  AQQB
+ 
+117. Aggregate Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (Native Hawaiian and Other Pacific Islander Alone Householder)
+     Universe:    Households with a householder who is Native Hawaiian and Other Pacific Islander alone
+     Source code: B19025E
+     NHGIS code:  AQQC
+ 
+118. Aggregate Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (Some Other Race Alone Householder)
+     Universe:    Households with a householder who is Some Other Race alone
+     Source code: B19025F
+     NHGIS code:  AQQD
+ 
+119. Aggregate Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (Two or More Races Householder)
+     Universe:    Households with a householder who is Two or More Races
+     Source code: B19025G
+     NHGIS code:  AQQE
+ 
+120. Aggregate Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (White Alone, Not Hispanic or Latino Householder)
+     Universe:    Households with a householder who is White alone, not Hispanic or Latino
+     Source code: B19025H
+     NHGIS code:  AQQF
+ 
+121. Aggregate Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (Hispanic or Latino Householder)
+     Universe:    Households with a householder who is Hispanic or Latino
+     Source code: B19025I
+     NHGIS code:  AQQG
+ 
+122. Age of Householder by Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars)
+     Universe:    Households
+     Source code: B19037
+     NHGIS code:  AQQH
+ 
+123. Median Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) by Age of Householder
+     Universe:    Households
+     Source code: B19049
+     NHGIS code:  AQQI
+ 
+124. Aggregate Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) by Age of Householder
+     Universe:    Households
+     Source code: B19050
+     NHGIS code:  AQQJ
+ 
+125. Earnings in the Past 12 Months for Households
+     Universe:    Households
+     Source code: B19051
+     NHGIS code:  AQQK
+ 
+126. Wage or Salary Income in the Past 12 Months for Households
+     Universe:    Households
+     Source code: B19052
+     NHGIS code:  AQQL
+ 
+127. Self-Employment Income in the Past 12 Months for Households
+     Universe:    Households
+     Source code: B19053
+     NHGIS code:  AQQM
+ 
+128. Interest, Dividends, or Net Rental Income in the Past 12 Months for Households
+     Universe:    Households
+     Source code: B19054
+     NHGIS code:  AQQN
+ 
+129. Social Security Income in the Past 12 Months for Households
+     Universe:    Households
+     Source code: B19055
+     NHGIS code:  AQQO
+ 
+130. Supplemental Security Income (SSI) in the Past 12 Months for Households
+     Universe:    Households
+     Source code: B19056
+     NHGIS code:  AQQP
+ 
+131. Public Assistance Income in the Past 12 Months for Households
+     Universe:    Households
+     Source code: B19057
+     NHGIS code:  AQQQ
+ 
+132. Public Assistance Income or Food Stamps/SNAP in the Past 12 Months for Households
+     Universe:    Households
+     Source code: B19058
+     NHGIS code:  AQQR
+ 
+133. Retirement Income in the Past 12 Months for Households
+     Universe:    Households
+     Source code: B19059
+     NHGIS code:  AQQS
+ 
+134. Other Types of Income in the Past 12 Months for Households
+     Universe:    Households
+     Source code: B19060
+     NHGIS code:  AQQT
+ 
+135. Aggregate Earnings in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for Households
+     Universe:    Households
+     Source code: B19061
+     NHGIS code:  AQQU
+ 
+136. Aggregate Wage or Salary Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for Households
+     Universe:    Households
+     Source code: B19062
+     NHGIS code:  AQQV
+ 
+137. Aggregate Self-Employment Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for Households
+     Universe:    Households
+     Source code: B19063
+     NHGIS code:  AQQW
+ 
+138. Aggregate Interest, Dividends, or Net Rental Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for Households
+     Universe:    Households
+     Source code: B19064
+     NHGIS code:  AQQX
+ 
+139. Aggregate Social Security Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for Households
+     Universe:    Households
+     Source code: B19065
+     NHGIS code:  AQQY
+ 
+140. Aggregate Supplemental Security Income (SSI) in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for Households
+     Universe:    Households
+     Source code: B19066
+     NHGIS code:  AQQZ
+ 
+141. Aggregate Public Assistance Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for Households
+     Universe:    Households
+     Source code: B19067
+     NHGIS code:  AQQ0
+ 
+142. Aggregate Retirement Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for Households
+     Universe:    Households
+     Source code: B19069
+     NHGIS code:  AQQ1
+ 
+143. Aggregate Other Types of Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for Households
+     Universe:    Households
+     Source code: B19070
+     NHGIS code:  AQQ2
+ 
+144. Family Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars)
+     Universe:    Families
+     Source code: B19101
+     NHGIS code:  AQQ3
+ 
+145. Median Family Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars)
+     Universe:    Families
+     Source code: B19113
+     NHGIS code:  AQQ4
+ 
+146. Family Size by Cash Public Assistance Income or Households Receiving Food Stamps/SNAP Benefits in the Past 12 Months
+     Universe:    Families
+     Source code: B19123
+     NHGIS code:  AQQ5
+ 
+147. Aggregate Family Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars)
+     Universe:    Families
+     Source code: B19127
+     NHGIS code:  AQQ6
+ 
+148. Nonfamily Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars)
+     Universe:    Nonfamily households
+     Source code: B19201
+     NHGIS code:  AQQ7
+ 
+149. Median Nonfamily Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars)
+     Universe:    Nonfamily households
+     Source code: B19202
+     NHGIS code:  AQQ8
+ 
+150. Aggregate Nonfamily Household Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars)
+     Universe:    Nonfamily households
+     Source code: B19214
+     NHGIS code:  AQQ9
+ 
+151. Per Capita Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars)
+     Universe:    Total population
+     Source code: B19301
+     NHGIS code:  AQRA
+ 
+152. Per Capita Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (White Alone)
+     Universe:    People who are White alone
+     Source code: B19301A
+     NHGIS code:  AQRB
+ 
+153. Per Capita Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (Black or African American Alone)
+     Universe:    People who are Black or African American alone
+     Source code: B19301B
+     NHGIS code:  AQRC
+ 
+154. Per Capita Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (American Indian and Alaska Native Alone)
+     Universe:    People who are American Indian and Alaska Native alone
+     Source code: B19301C
+     NHGIS code:  AQRD
+ 
+155. Per Capita Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (Asian Alone)
+     Universe:    People who are Asian alone
+     Source code: B19301D
+     NHGIS code:  AQRE
+ 
+156. Per Capita Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (Native Hawaiian and Other Pacific Islander Alone)
+     Universe:    People who are Native Hawaiian and Other Pacific Islander alone
+     Source code: B19301E
+     NHGIS code:  AQRF
+ 
+157. Per Capita Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (Some Other Race Alone)
+     Universe:    People who are Some Other Race alone
+     Source code: B19301F
+     NHGIS code:  AQRG
+ 
+158. Per Capita Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (Two or More Races)
+     Universe:    People who are Two or More Races
+     Source code: B19301G
+     NHGIS code:  AQRH
+ 
+159. Per Capita Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (White Alone, Not Hispanic or Latino)
+     Universe:    White alone, not Hispanic or Latino population
+     Source code: B19301H
+     NHGIS code:  AQRI
+ 
+160. Per Capita Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) (Hispanic or Latino)
+     Universe:    People who are Hispanic or Latino
+     Source code: B19301I
+     NHGIS code:  AQRJ
+ 
+161. Aggregate Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars)
+     Universe:    Population 15 years and over
+     Source code: B19313
+     NHGIS code:  AQRK
+ 
+162. Aggregate Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for the Population 15 Years and Over (White Alone)
+     Universe:    White alone population 15 years and over
+     Source code: B19313A
+     NHGIS code:  AQRL
+ 
+163. Aggregate Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for the Population 15 Years and Over (Black or African American Alone)
+     Universe:    Black or African American alone population 15 years and over
+     Source code: B19313B
+     NHGIS code:  AQRM
+ 
+164. Aggregate Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for the Population 15 Years and Over (American Indian and Alaska Native Alone)
+     Universe:    American Indian and Alaska Native alone population 15 years and over
+     Source code: B19313C
+     NHGIS code:  AQRN
+ 
+165. Aggregate Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for the Population 15 Years and Over (Asian Alone)
+     Universe:    Asian alone population 15 years and over
+     Source code: B19313D
+     NHGIS code:  AQRO
+ 
+166. Aggregate Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for the Population 15 Years and Over (Native Hawaiian and Other Pacific Islander Alone)
+     Universe:    Native Hawaiian and Other Pacific Islander alone population 15 years and over
+     Source code: B19313E
+     NHGIS code:  AQRP
+ 
+167. Aggregate Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for the Population 15 Years and Over (Some Other Race Alone)
+     Universe:    Some Other Race alone population 15 years and over
+     Source code: B19313F
+     NHGIS code:  AQRQ
+ 
+168. Aggregate Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for the Population 15 Years and Over (Two or More Races)
+     Universe:    Two or More Races population 15 years and over
+     Source code: B19313G
+     NHGIS code:  AQRR
+ 
+169. Aggregate Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for the Population 15 Years and Over (White Alone, Not Hispanic or Latino)
+     Universe:    White alone, not Hispanic or Latino population 15 years and over
+     Source code: B19313H
+     NHGIS code:  AQRS
+ 
+170. Aggregate Income in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for the Population 15 Years and Over (Hispanic or Latino)
+     Universe:    Hispanic or Latino population 15 years and over
+     Source code: B19313I
+     NHGIS code:  AQRT
+ 
+171. Sex by Earnings in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) for the Population 16 Years and Over with Earnings in the Past 12 Months
+     Universe:    Population 16 years and over with earnings
+     Source code: B20001
+     NHGIS code:  AQRU
+ 
+172. Median Earnings in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) by Sex for the Population 16 Years and Over with Earnings in the Past 12 Months
+     Universe:    Population 16 years and over with earnings
+     Source code: B20002
+     NHGIS code:  AQRV
+ 
+173. Aggregate Earnings in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) by Sex by Work Experience for the Population 16 Years and Over with Earnings
+     Universe:    Population 16 years and over with earnings
+     Source code: B20003
+     NHGIS code:  AQRW
+ 
+174. Median Earnings in the Past 12 Months (in 2022 Inflation-Adjusted Dollars) by Sex by Work Experience in the Past 12 Months for the Population 16 Years and Over with Earnings in the Past 12 Months
+     Universe:    Population 16 years and over with earnings
+     Source code: B20017
+     NHGIS code:  AQRX
+ 
+175. Sex by Age by Veteran Status for the Civilian Population 18 Years and Over
+     Universe:    Civilian population 18 years and over
+     Source code: B21001
+     NHGIS code:  AQRY
+ 
+176. Period of Military Service for Civilian Veterans 18 Years and Over
+     Universe:    Civilian veterans 18 years and over
+     Source code: B21002
+     NHGIS code:  AQRZ
+ 
+177. Age by Veteran Status by Poverty Status in the Past 12 Months by Disability Status for the Civilian Population 18 Years and Over
+     Universe:    Civilian population 18 years and over for whom poverty status is determined
+     Source code: C21007
+     NHGIS code:  AQR0
+ 
+178. Receipt of Food Stamps/SNAP in the Past 12 Months by Disability Status for Households
+     Universe:    Households
+     Source code: B22010
+     NHGIS code:  AQR1
+ 
+179. Presence of Own Children Under 18 Years by Age of Own Children Under 18 Years by Employment Status for Females 20 to 64 Years
+     Universe:    Females 20 to 64 years in households
+     Source code: B23003
+     NHGIS code:  AQR2
+ 
+180. Presence of Own Children Under 18 Years by Family Type by Employment Status
+     Universe:    Opposite-sex married-couple families and families maintained by women and men with no spouse present
+     Source code: B23007
+     NHGIS code:  AQR3
+ 
+181. Age of Own Children Under 18 Years in Families and Subfamilies by Living Arrangements by Employment Status of Parents
+     Universe:    Own children under 18 years in families and subfamilies
+     Source code: B23008
+     NHGIS code:  AQR4
+ 
+182. Presence of Own Children Under 18 Years by Family Type by Number of Workers in Family in the Past 12 Months
+     Universe:    Families
+     Source code: B23009
+     NHGIS code:  AQR5
+ 
+183. Sex by Work Status in the Past 12 Months by Usual Hours Worked per Week in the Past 12 Months by Weeks Worked in the Past 12 Months for the Population 16 to 64 Years
+     Universe:    Population 16 to 64 years
+     Source code: B23022
+     NHGIS code:  AQR6
+ 
+184. Poverty Status in the Past 12 Months by Disability Status by Employment Status for the Population 20 to 64 Years
+     Universe:    Population 20 to 64 years for whom poverty status is determined
+     Source code: B23024
+     NHGIS code:  AQR7
+ 
+185. Employment Status for the Population 16 Years and Over
+     Universe:    Population 16 years and over
+     Source code: B23025
+     NHGIS code:  AQR8
+ 
+186. Sex by Work Status in the Past 12 Months by Usual Hours Worked per Week in the Past 12 Months by Weeks Worked in the Past 12 Months for the Population 65 Years and Over
+     Universe:    Civilian population 65 years and over
+     Source code: B23026
+     NHGIS code:  AQR9
+ 
+187. Full-Time, Year-Round Work Status in the Past 12 Months by Age for the Population 16 Years and Over
+     Universe:    Population 16 years and over
+     Source code: B23027
+     NHGIS code:  AQSA
+ 
+188. Sex by Occupation for the Civilian Employed Population 16 Years and Over
+     Universe:    Civilian employed population 16 years and over
+     Source code: C24010
+     NHGIS code:  AQSB
+ 
+189. Sex by Occupation for the Civilian Employed Population 16 Years and Over (White Alone)
+     Universe:    Civilian employed White alone population 16 years and over
+     Source code: C24010A
+     NHGIS code:  AQSC
+ 
+190. Sex by Occupation for the Civilian Employed Population 16 Years and Over (Black or African American Alone)
+     Universe:    Civilian employed Black or African American alone population 16 years and over
+     Source code: C24010B
+     NHGIS code:  AQSD
+ 
+191. Sex by Occupation for the Civilian Employed Population 16 Years and Over (American Indian and Alaska Native Alone)
+     Universe:    Civilian employed American Indian and Alaska Native alone population 16 years and over
+     Source code: C24010C
+     NHGIS code:  AQSE
+ 
+192. Sex by Occupation for the Civilian Employed Population 16 Years and Over (Asian Alone)
+     Universe:    Civilian employed Asian alone population 16 years and over
+     Source code: C24010D
+     NHGIS code:  AQSF
+ 
+193. Sex by Occupation for the Civilian Employed Population 16 Years and Over (Native Hawaiian and Other Pacific Islander Alone)
+     Universe:    Civilian employed Native Hawaiian and Other Pacific Islander alone population 16 years and over
+     Source code: C24010E
+     NHGIS code:  AQSG
+ 
+194. Sex by Occupation for the Civilian Employed Population 16 Years and Over (Some Other Race Alone)
+     Universe:    Civilian employed Some Other Race alone population 16 years and over
+     Source code: C24010F
+     NHGIS code:  AQSH
+ 
+195. Sex by Occupation for the Civilian Employed Population 16 Years and Over (Two or More Races)
+     Universe:    Civilian employed Two or More Races population 16 years and over
+     Source code: C24010G
+     NHGIS code:  AQSI
+ 
+196. Sex by Occupation for the Civilian Employed Population 16 Years and Over (White Alone, Not Hispanic or Latino)
+     Universe:    Civilian employed White alone, not Hispanic or Latino population 16 years and over
+     Source code: C24010H
+     NHGIS code:  AQSJ
+ 
+197. Sex by Occupation for the Civilian Employed Population 16 Years and Over (Hispanic or Latino)
+     Universe:    Civilian employed Hispanic or Latino population 16 years and over
+     Source code: C24010I
+     NHGIS code:  AQSK
+ 
+198. Sex by Occupation for the Full-Time, Year-Round Civilian Employed Population 16 Years and Over
+     Universe:    Full-time, year-round civilian employed population 16 years and over
+     Source code: C24020
+     NHGIS code:  AQSL
+ 
+199. Sex by Industry for the Civilian Employed Population 16 Years and Over
+     Universe:    Civilian employed population 16 years and over
+     Source code: C24030
+     NHGIS code:  AQSM
+ 
+200. Sex by Class of Worker for the Civilian Employed Population 16 Years and Over
+     Universe:    Civilian employed population 16 years and over
+     Source code: B24080
+     NHGIS code:  AQSN
+ 
+201. Housing Units
+     Universe:    Housing units
+     Source code: B25001
+     NHGIS code:  AQSO
+ 
+202. Occupancy Status
+     Universe:    Housing units
+     Source code: B25002
+     NHGIS code:  AQSP
+ 
+203. Tenure
+     Universe:    Occupied housing units
+     Source code: B25003
+     NHGIS code:  AQSQ
+ 
+204. Tenure (White Alone Householder)
+     Universe:    Occupied housing units with a householder who is White alone
+     Source code: B25003A
+     NHGIS code:  AQSR
+ 
+205. Tenure (Black or African American Alone Householder)
+     Universe:    Occupied housing units with a householder who is Black or African American alone
+     Source code: B25003B
+     NHGIS code:  AQSS
+ 
+206. Tenure (American Indian and Alaska Native Alone Householder)
+     Universe:    Occupied housing units with a householder who is American Indian and Alaska Native alone
+     Source code: B25003C
+     NHGIS code:  AQST
+ 
+207. Tenure (Asian Alone Householder)
+     Universe:    Occupied housing units with a householder who is Asian alone
+     Source code: B25003D
+     NHGIS code:  AQSU
+ 
+208. Tenure (Native Hawaiian and Other Pacific Islander Alone Householder)
+     Universe:    Occupied housing units with a householder who is Native Hawaiian and Other Pacific Islander alone
+     Source code: B25003E
+     NHGIS code:  AQSV
+ 
+209. Tenure (Some Other Race Alone Householder)
+     Universe:    Occupied housing units with a householder who is Some Other Race alone
+     Source code: B25003F
+     NHGIS code:  AQSW
+ 
+210. Tenure (Two or More Races Householder)
+     Universe:    Occupied housing units with a householder who is Two or More Races
+     Source code: B25003G
+     NHGIS code:  AQSX
+ 
+211. Tenure (White Alone, Not Hispanic or Latino Householder)
+     Universe:    Occupied housing units with a householder who is White alone, not Hispanic or Latino
+     Source code: B25003H
+     NHGIS code:  AQSY
+ 
+212. Tenure (Hispanic or Latino Householder)
+     Universe:    Occupied housing units with a householder who is Hispanic or Latino
+     Source code: B25003I
+     NHGIS code:  AQSZ
+ 
+213. Vacancy Status
+     Universe:    Vacant housing units
+     Source code: B25004
+     NHGIS code:  AQS0
+ 
+214. Race of Householder
+     Universe:    Occupied housing units
+     Source code: B25006
+     NHGIS code:  AQS1
+ 
+215. Tenure by Age of Householder
+     Universe:    Occupied housing units
+     Source code: B25007
+     NHGIS code:  AQS2
+ 
+216. Total Population in Occupied Housing Units by Tenure
+     Universe:    Total population in occupied housing units
+     Source code: B25008
+     NHGIS code:  AQS3
+ 
+217. Total Population in Occupied Housing Units by Tenure (White Alone Householder)
+     Universe:    Occupied housing units with a householder who is White alone
+     Source code: B25008A
+     NHGIS code:  AQS4
+ 
+218. Total Population in Occupied Housing Units by Tenure (Black or African American Alone Householder)
+     Universe:    Occupied housing units with a householder who is Black or African American alone
+     Source code: B25008B
+     NHGIS code:  AQS5
+ 
+219. Total Population in Occupied Housing Units by Tenure (American Indian and Alaska Native Alone Householder)
+     Universe:    Occupied housing units with a householder who is American Indian and Alaska Native alone
+     Source code: B25008C
+     NHGIS code:  AQS6
+ 
+220. Total Population in Occupied Housing Units by Tenure (Asian Alone Householder)
+     Universe:    Occupied housing units with a householder who is Asian alone
+     Source code: B25008D
+     NHGIS code:  AQS7
+ 
+221. Total Population in Occupied Housing Units by Tenure (Native Hawaiian and Other Pacific Islander Alone Householder)
+     Universe:    Occupied housing units with a householder who is Native Hawaiian and Other Pacific Islander alone
+     Source code: B25008E
+     NHGIS code:  AQS8
+ 
+222. Total Population in Occupied Housing Units by Tenure (Some Other Race Alone Householder)
+     Universe:    Occupied housing units with a householder who is Some Other Race alone
+     Source code: B25008F
+     NHGIS code:  AQS9
+ 
+223. Total Population in Occupied Housing Units by Tenure (Two or More Races Householder)
+     Universe:    Occupied housing units with a householder who is Two or More Races
+     Source code: B25008G
+     NHGIS code:  AQTA
+ 
+224. Total Population in Occupied Housing Units by Tenure (White Alone, Not Hispanic or Latino Householder)
+     Universe:    Occupied housing units with a householder who is White alone, not Hispanic or Latino
+     Source code: B25008H
+     NHGIS code:  AQTB
+ 
+225. Total Population in Occupied Housing Units by Tenure (Hispanic or Latino Householder)
+     Universe:    Occupied housing units with a householder who is Hispanic or Latino
+     Source code: B25008I
+     NHGIS code:  AQTC
+ 
+226. Tenure by Household Size
+     Universe:    Occupied housing units
+     Source code: B25009
+     NHGIS code:  AQTD
+ 
+227. Average Household Size of Occupied Housing Units by Tenure
+     Universe:    Occupied housing units
+     Source code: B25010
+     NHGIS code:  AQTE
+ 
+228. Average Household Size of Occupied Housing Units by Tenure (White Alone Householder)
+     Universe:    Occupied housing units
+     Source code: B25010A
+     NHGIS code:  AQTF
+ 
+229. Average Household Size of Occupied Housing Units by Tenure (Black or African American Alone Householder)
+     Universe:    Occupied housing units
+     Source code: B25010B
+     NHGIS code:  AQTG
+ 
+230. Average Household Size of Occupied Housing Units by Tenure (American Indian and Alaska Native Alone Householder)
+     Universe:    Occupied housing units
+     Source code: B25010C
+     NHGIS code:  AQTH
+ 
+231. Average Household Size of Occupied Housing Units by Tenure (Asian Alone Householder)
+     Universe:    Occupied housing units
+     Source code: B25010D
+     NHGIS code:  AQTI
+ 
+232. Average Household Size of Occupied Housing Units by Tenure (Native Hawaiian and Other Pacific Islander Alone Householder)
+     Universe:    Occupied housing units
+     Source code: B25010E
+     NHGIS code:  AQTJ
+ 
+233. Average Household Size of Occupied Housing Units by Tenure (Some Other Race Alone Householder)
+     Universe:    Occupied housing units
+     Source code: B25010F
+     NHGIS code:  AQTK
+ 
+234. Average Household Size of Occupied Housing Units by Tenure (Two or More Races Householder)
+     Universe:    Occupied housing units
+     Source code: B25010G
+     NHGIS code:  AQTL
+ 
+235. Average Household Size of Occupied Housing Units by Tenure (White Alone, Not Hispanic or Latino Householder)
+     Universe:    Occupied housing units
+     Source code: B25010H
+     NHGIS code:  AQTM
+ 
+236. Average Household Size of Occupied Housing Units by Tenure (Hispanic or Latino Householder)
+     Universe:    Occupied housing units
+     Source code: B25010I
+     NHGIS code:  AQTN
+ 
+237. Tenure by Occupants per Room
+     Universe:    Occupied housing units
+     Source code: B25014
+     NHGIS code:  AQTO
+ 
+238. Tenure by Age of Householder by Occupants per Room
+     Universe:    Occupied housing units
+     Source code: B25015
+     NHGIS code:  AQTP
+ 
+239. Tenure by Plumbing Facilities by Occupants per Room
+     Universe:    Occupied housing units
+     Source code: B25016
+     NHGIS code:  AQTQ
+ 
+240. Rooms
+     Universe:    Housing units
+     Source code: B25017
+     NHGIS code:  AQTR
+ 
+241. Median Number of Rooms
+     Universe:    Housing units
+     Source code: B25018
+     NHGIS code:  AQTS
+ 
+242. Aggregate Number of Rooms
+     Universe:    Housing units
+     Source code: B25019
+     NHGIS code:  AQTT
+ 
+243. Tenure by Rooms
+     Universe:    Occupied housing units
+     Source code: B25020
+     NHGIS code:  AQTU
+ 
+244. Median Number of Rooms by Tenure
+     Universe:    Occupied housing units
+     Source code: B25021
+     NHGIS code:  AQTV
+ 
+245. Aggregate Number of Rooms by Tenure
+     Universe:    Occupied housing units
+     Source code: B25022
+     NHGIS code:  AQTW
+ 
+246. Units in Structure
+     Universe:    Housing units
+     Source code: B25024
+     NHGIS code:  AQTX
+ 
+247. Tenure by Units in Structure
+     Universe:    Occupied housing units
+     Source code: B25032
+     NHGIS code:  AQTY
+ 
+248. Total Population in Occupied Housing Units by Tenure by Units in Structure
+     Universe:    Total population in occupied housing units
+     Source code: B25033
+     NHGIS code:  AQTZ
+ 
+249. Year Structure Built
+     Universe:    Housing units
+     Source code: B25034
+     NHGIS code:  AQT0
+ 
+250. Median Year Structure Built
+     Universe:    Housing units
+     Source code: B25035
+     NHGIS code:  AQT1
+ 
+251. Tenure by Year Structure Built
+     Universe:    Occupied housing units
+     Source code: B25036
+     NHGIS code:  AQT2
+ 
+252. Median Year Structure Built by Tenure
+     Universe:    Occupied housing units
+     Source code: B25037
+     NHGIS code:  AQT3
+ 
+253. Tenure by Year Householder Moved into Unit
+     Universe:    Occupied housing units
+     Source code: B25038
+     NHGIS code:  AQT4
+ 
+254. Median Year Householder Moved into Unit by Tenure
+     Universe:    Occupied housing units
+     Source code: B25039
+     NHGIS code:  AQT5
+ 
+255. House Heating Fuel
+     Universe:    Occupied housing units
+     Source code: B25040
+     NHGIS code:  AQT6
+ 
+256. Bedrooms
+     Universe:    Housing units
+     Source code: B25041
+     NHGIS code:  AQT7
+ 
+257. Tenure by Bedrooms
+     Universe:    Occupied housing units
+     Source code: B25042
+     NHGIS code:  AQT8
+ 
+258. Tenure by Telephone Service Available by Age of Householder
+     Universe:    Occupied housing units
+     Source code: B25043
+     NHGIS code:  AQT9
+ 
+259. Tenure by Vehicles Available
+     Universe:    Occupied housing units
+     Source code: B25044
+     NHGIS code:  AQUA
+ 
+260. Tenure by Vehicles Available by Age of Householder
+     Universe:    Occupied housing units
+     Source code: B25045
+     NHGIS code:  AQUB
+ 
+261. Aggregate Number of Vehicles Available by Tenure
+     Universe:    Occupied housing units
+     Source code: B25046
+     NHGIS code:  AQUC
+ 
+262. Plumbing Facilities for All Housing Units
+     Universe:    Housing units
+     Source code: B25047
+     NHGIS code:  AQUD
+ 
+263. Tenure by Plumbing Facilities
+     Universe:    Occupied housing units
+     Source code: B25049
+     NHGIS code:  AQUE
+ 
+264. Plumbing Facilities by Occupants per Room by Year Structure Built
+     Universe:    Occupied housing units
+     Source code: B25050
+     NHGIS code:  AQUF
+ 
+265. Kitchen Facilities for All Housing Units
+     Universe:    Housing units
+     Source code: B25051
+     NHGIS code:  AQUG
+ 
+266. Tenure by Kitchen Facilities
+     Universe:    Occupied housing units
+     Source code: B25053
+     NHGIS code:  AQUH
+ 
+267. Kitchen Facilities by Meals Included in Rent
+     Universe:    Renter-occupied housing units paying cash rent
+     Source code: B25054
+     NHGIS code:  AQUI
+ 
+268. Age of Householder by Meals Included in Rent
+     Universe:    Renter-occupied housing units paying cash rent
+     Source code: B25055
+     NHGIS code:  AQUJ
+ 
+269. Contract Rent
+     Universe:    Renter-occupied housing units
+     Source code: B25056
+     NHGIS code:  AQUK
+ 
+270. Lower Contract Rent Quartile (Dollars)
+     Universe:    Renter-occupied housing units paying cash rent
+     Source code: B25057
+     NHGIS code:  AQUL
+ 
+271. Median Contract Rent (Dollars)
+     Universe:    Renter-occupied housing units paying cash rent
+     Source code: B25058
+     NHGIS code:  AQUM
+ 
+272. Upper Contract Rent Quartile (Dollars)
+     Universe:    Renter-occupied housing units paying cash rent
+     Source code: B25059
+     NHGIS code:  AQUN
+ 
+273. Aggregate Contract Rent (Dollars)
+     Universe:    Renter-occupied housing units paying cash rent
+     Source code: B25060
+     NHGIS code:  AQUO
+ 
+274. Rent Asked
+     Universe:    Vacant-for-rent and rented, not occupied housing units
+     Source code: B25061
+     NHGIS code:  AQUP
+ 
+275. Aggregate Rent Asked (Dollars)
+     Universe:    Vacant-for-rent and rented, not occupied housing units
+     Source code: B25062
+     NHGIS code:  AQUQ
+ 
+276. Gross Rent
+     Universe:    Renter-occupied housing units
+     Source code: B25063
+     NHGIS code:  AQUR
+ 
+277. Median Gross Rent (Dollars)
+     Universe:    Renter-occupied housing units paying cash rent
+     Source code: B25064
+     NHGIS code:  AQUS
+ 
+278. Aggregate Gross Rent (Dollars)
+     Universe:    Renter-occupied housing units paying cash rent
+     Source code: B25065
+     NHGIS code:  AQUT
+ 
+279. Aggregate Gross Rent (Dollars) by Units in Structure
+     Universe:    Renter-occupied housing units paying cash rent
+     Source code: B25066
+     NHGIS code:  AQUU
+ 
+280. Aggregate Gross Rent (Dollars) by Meals Included in Rent
+     Universe:    Renter-occupied housing units paying cash rent
+     Source code: B25067
+     NHGIS code:  AQUV
+ 
+281. Bedrooms by Gross Rent
+     Universe:    Renter-occupied housing units
+     Source code: B25068
+     NHGIS code:  AQUW
+ 
+282. Inclusion of Utilities in Rent
+     Universe:    Renter-occupied housing units
+     Source code: B25069
+     NHGIS code:  AQUX
+ 
+283. Gross Rent as a Percentage of Household Income in the Past 12 Months
+     Universe:    Renter-occupied housing units
+     Source code: B25070
+     NHGIS code:  AQUY
+ 
+284. Median Gross Rent as a Percentage of Household Income in the Past 12 Months (Dollars)
+     Universe:    Renter-occupied housing units paying cash rent
+     Source code: B25071
+     NHGIS code:  AQUZ
+ 
+285. Age of Householder by Gross Rent as a Percentage of Household Income in the Past 12 Months
+     Universe:    Renter-occupied housing units
+     Source code: B25072
+     NHGIS code:  AQU0
+ 
+286. Household Income by Gross Rent as a Percentage of Household Income in the Past 12 Months
+     Universe:    Renter-occupied housing units
+     Source code: B25074
+     NHGIS code:  AQU1
+ 
+287. Value
+     Universe:    Owner-occupied housing units
+     Source code: B25075
+     NHGIS code:  AQU2
+ 
+288. Lower Value Quartile (Dollars)
+     Universe:    Owner-occupied housing units
+     Source code: B25076
+     NHGIS code:  AQU3
+ 
+289. Median Value (Dollars)
+     Universe:    Owner-occupied housing units
+     Source code: B25077
+     NHGIS code:  AQU4
+ 
+290. Median Value (Dollars, White Alone Householder)
+     Universe:    Owner-occupied housing units with a householder who is White alone
+     Source code: B25077A
+     NHGIS code:  AQU5
+ 
+291. Median Value (Dollars, Black or African American Alone Householder)
+     Universe:    Owner-occupied housing units with a householder who is Black or African American alone
+     Source code: B25077B
+     NHGIS code:  AQU6
+ 
+292. Median Value (Dollars, American Indian and Alaska Native Alone Householder)
+     Universe:    Owner-occupied housing units with a householder who is American Indian and Alaska Native alone
+     Source code: B25077C
+     NHGIS code:  AQU7
+ 
+293. Median Value (Dollars, Asian Alone Householder)
+     Universe:    Owner-occupied housing units with a householder who is Asian alone
+     Source code: B25077D
+     NHGIS code:  AQU8
+ 
+294. Median Value (Dollars, Native Hawaiian and Other Pacific Islander Alone Householder)
+     Universe:    Owner-occupied housing units with a householder who is Native Hawaiian and Other Pacific Islander alone
+     Source code: B25077E
+     NHGIS code:  AQU9
+ 
+295. Median Value (Dollars, Some Other Race Alone Householder)
+     Universe:    Owner-occupied housing units with a householder who is Some Other Race alone
+     Source code: B25077F
+     NHGIS code:  AQVA
+ 
+296. Median Value (Dollars, Two or More Races Householder)
+     Universe:    Owner-occupied housing units with a householder who is Two or More Races
+     Source code: B25077G
+     NHGIS code:  AQVB
+ 
+297. Median Value (Dollars, White Alone, Not Hispanic or Latino Householder)
+     Universe:    Owner-occupied housing units with a householder who is White alone, not Hispanic or Latino
+     Source code: B25077H
+     NHGIS code:  AQVC
+ 
+298. Median Value (Dollars, Hispanic or Latino Householder)
+     Universe:    Owner-occupied housing units with a householder who is Hispanic or Latino
+     Source code: B25077I
+     NHGIS code:  AQVD
+ 
+299. Upper Value Quartile (Dollars)
+     Universe:    Owner-occupied housing units
+     Source code: B25078
+     NHGIS code:  AQVE
+ 
+300. Aggregate Value (Dollars) by Age of Householder
+     Universe:    Owner-occupied housing units
+     Source code: B25079
+     NHGIS code:  AQVF
+ 
+301. Aggregate Value (Dollars) by Units in Structure
+     Universe:    Owner-occupied housing units
+     Source code: B25080
+     NHGIS code:  AQVG
+ 
+302. Mortgage Status
+     Universe:    Owner-occupied housing units
+     Source code: B25081
+     NHGIS code:  AQVH
+ 
+303. Aggregate Value (Dollars) by Mortgage Status
+     Universe:    Owner-occupied housing units
+     Source code: B25082
+     NHGIS code:  AQVI
+ 
+304. Median Value (Dollars) for Mobile Homes
+     Universe:    Owner-occupied mobile homes
+     Source code: B25083
+     NHGIS code:  AQVJ
+ 
+305. Price Asked
+     Universe:    Vacant-for-sale-only and sold, not occupied housing units
+     Source code: B25085
+     NHGIS code:  AQVK
+ 
+306. Aggregate Price Asked (Dollars)
+     Universe:    Vacant-for-sale-only and sold, not occupied housing units
+     Source code: B25086
+     NHGIS code:  AQVL
+ 
+307. Mortgage Status and Selected Monthly Owner Costs
+     Universe:    Owner-occupied housing units
+     Source code: B25087
+     NHGIS code:  AQVM
+ 
+308. Median Selected Monthly Owner Costs (Dollars) by Mortgage Status
+     Universe:    Owner-occupied housing units
+     Source code: B25088
+     NHGIS code:  AQVN
+ 
+309. Aggregate Selected Monthly Owner Costs (Dollars) by Mortgage Status
+     Universe:    Owner-occupied housing units
+     Source code: B25089
+     NHGIS code:  AQVO
+ 
+310. Mortgage Status by Selected Monthly Owner Costs as a Percentage of Household Income in the Past 12 Months
+     Universe:    Owner-occupied housing units
+     Source code: B25091
+     NHGIS code:  AQVP
+ 
+311. Median Selected Monthly Owner Costs as a Percentage of Household Income in the Past 12 Months
+     Universe:    Owner-occupied housing units
+     Source code: B25092
+     NHGIS code:  AQVQ
+ 
+312. Age of Householder by Selected Monthly Owner Costs as a Percentage of Household Income in the Past 12 Months
+     Universe:    Owner-occupied housing units
+     Source code: B25093
+     NHGIS code:  AQVR
+ 
+313. Structure Type by Occupancy Status
+     Universe:    Housing units
+     Source code: B25136
+     NHGIS code:  AQVS
+ 
+314. Bedrooms by Occupancy Status
+     Universe:    Housing units
+     Source code: B25137
+     NHGIS code:  AQVT
+ 
+315. Lower Gross Rent Quartile (Dollars)
+     Universe:    Renter-occupied housing units paying cash rent
+     Source code: B25138
+     NHGIS code:  AQVU
+ 
+316. Upper Gross Rent Quartile (Dollars)
+     Universe:    Renter-occupied housing units paying cash rent
+     Source code: B25139
+     NHGIS code:  AQVV
+ 
+317. Housing Costs as a Percentage of Household Income in the Past 12 Months
+     Universe:    Occupied housing units
+     Source code: B25140
+     NHGIS code:  AQVW
+ 
+318. Types of Health Insurance Coverage by Age
+     Universe:    Civilian noninstitutionalized population
+     Source code: B27010
+     NHGIS code:  AQVX
+ 
+319. Types of Computers in Household
+     Universe:    Households
+     Source code: B28001
+     NHGIS code:  AQVY
+ 
+320. Presence and Types of Internet Subscriptions in Household
+     Universe:    Households
+     Source code: B28002
+     NHGIS code:  AQVZ
+ 
+321. Presence of a Computer and Type of Internet Subscription in Household
+     Universe:    Households
+     Source code: B28003
+     NHGIS code:  AQV0
+ 
+322. Household Income in the Last 12 Months (in 2022 Inflation-Adjusted Dollars) by Presence and Type of Internet Subscription in Household
+     Universe:    Households
+     Source code: B28004
+     NHGIS code:  AQV1
+ 
+323. Age by Presence of a Computer and Types of Internet Subscription in Household
+     Universe:    Population in households
+     Source code: B28005
+     NHGIS code:  AQV2
+ 
+324. Educational Attainment by Presence of a Computer and Types of Internet Subscription in Household
+     Universe:    Household population 25 years and over
+     Source code: B28006
+     NHGIS code:  AQV3
+ 
+325. Labor Force Status by Presence of a Computer and Types of Internet Subscription in Household
+     Universe:    Civilian household population 16 years and over
+     Source code: B28007
+     NHGIS code:  AQV4
+ 
+326. Presence of a Computer and Type of Internet Subscription in Household
+     Universe:    Population in households
+     Source code: B28008
+     NHGIS code:  AQV5
+ 
+327. Presence of a Computer and Type of Internet Subscription in Household (White Alone)
+     Universe:    Population in households who are White alone
+     Source code: B28009A
+     NHGIS code:  AQV6
+ 
+328. Presence of a Computer and Type of Internet Subscription in Household (Black or African American Alone)
+     Universe:    Population in households who are Black or African American alone
+     Source code: B28009B
+     NHGIS code:  AQV7
+ 
+329. Presence of a Computer and Type of Internet Subscription in Household (American Indian and Alaska Native Alone)
+     Universe:    Population in households who are American Indian and Alaska Native alone
+     Source code: B28009C
+     NHGIS code:  AQV8
+ 
+330. Presence of a Computer and Type of Internet Subscription in Household (Asian Alone)
+     Universe:    Population in households who are Asian alone
+     Source code: B28009D
+     NHGIS code:  AQV9
+ 
+331. Presence of a Computer and Type of Internet Subscription in Household (Native Hawaiian and Other Pacific Islander Alone)
+     Universe:    Population in households who are Native Hawaiian and Other Pacific Islander alone
+     Source code: B28009E
+     NHGIS code:  AQWA
+ 
+332. Presence of a Computer and Type of Internet Subscription in Household (Some Other Race Alone)
+     Universe:    Population in households who are Some Other Race alone
+     Source code: B28009F
+     NHGIS code:  AQWB
+ 
+333. Presence of a Computer and Type of Internet Subscription in Household (Two or More Races)
+     Universe:    Population in households who are Two or More Races
+     Source code: B28009G
+     NHGIS code:  AQWC
+ 
+334. Presence of a Computer and Type of Internet Subscription in Household (White Alone, Not Hispanic or Latino)
+     Universe:    Population in households who are White alone, not Hispanic or Latino
+     Source code: B28009H
+     NHGIS code:  AQWD
+ 
+335. Presence of a Computer and Type of Internet Subscription in Household (Hispanic or Latino)
+     Universe:    Population in households who are Hispanic or Latino
+     Source code: B28009I
+     NHGIS code:  AQWE
+ 
+336. Computers in Household
+     Universe:    Households
+     Source code: B28010
+     NHGIS code:  AQWF
+ 
+337. Internet Subscriptions in Household
+     Universe:    Households
+     Source code: B28011
+     NHGIS code:  AQWG
+ 
+338. Age and Enrollment Status by Computer Ownership and Internet Subscription Status
+     Universe:    Population in households
+     Source code: B28012
+     NHGIS code:  AQWH
+ 
+339. Citizen, Voting-Age Population by Age [Data for nation, state, county, tract, block group, place, congressional district, and state legislative district levels only]
+     Universe:    Citizens 18 years and over
+     Source code: B29001
+     NHGIS code:  AQWI
+ 
+340. Citizen, Voting-Age Population by Educational Attainment [Data for nation, state, county, tract, block group, place, congressional district, and state legislative district levels only]
+     Universe:    Citizens 18 years and over
+     Source code: B29002
+     NHGIS code:  AQWJ
+ 
+341. Citizen, Voting-Age Population by Poverty Status [Data for nation, state, county, tract, block group, place, congressional district, and state legislative district levels only]
+     Universe:    Citizens 18 years and over for whom poverty status is determined
+     Source code: B29003
+     NHGIS code:  AQWK
+ 
+342. Median Household Income for Households with a Citizen, Voting-Age Householder (in 2022 Inflation-Adjusted Dollars) [Data for nation, state, county, tract, block group, place, congressional district, and state legislative district levels only]
+     Universe:    Households with a citizen, voting-age householder
+     Source code: B29004
+     NHGIS code:  AQWL
+ 
+343. Allocation of Sex
+     Universe:    Total population
+     Source code: B99011
+     NHGIS code:  AQWM
+ 
+344. Allocation of Age
+     Universe:    Total population
+     Source code: B99012
+     NHGIS code:  AQWN
+ 
+345. Allocation of Race
+     Universe:    Total population
+     Source code: B99021
+     NHGIS code:  AQWO
+ 
+346. Allocation of Hispanic or Latino Origin
+     Universe:    Total population
+     Source code: B99031
+     NHGIS code:  AQWP
+ 
+347. Allocation of Citizenship Status
+     Universe:    Total population
+     Source code: B99051
+     NHGIS code:  AQWQ
+ 
+348. Allocation of Year of Entry [No data for Puerto Rico]
+     Universe:    Population born outside the United States
+     Source code: B99052
+     NHGIS code:  AQWR
+ 
+349. Allocation of Year of Entry for Population Born Outside Puerto Rico [Data for Puerto Rico only]
+     Universe:    Population born outside Puerto Rico
+     Source code: B99052PR
+     NHGIS code:  AQWS
+ 
+350. Allocation of Year of Naturalization
+     Universe:    Naturalized citizen population
+     Source code: B99053
+     NHGIS code:  AQWT
+ 
+351. Allocation of Place of Birth
+     Universe:    Total population
+     Source code: B99061
+     NHGIS code:  AQWU
+ 
+352. Allocation of Mobility Status for the Population 1 Year and Over
+     Universe:    Population 1 year and over
+     Source code: B99071
+     NHGIS code:  AQWV
+ 
+353. Allocation of Residence 1 Year Ago for the Population 1 Year and Over
+     Universe:    Population 1 year and over
+     Source code: B99072
+     NHGIS code:  AQWW
+ 
+354. Allocation of Means of Transportation to Work
+     Universe:    Workers 16 years and over
+     Source code: B99080
+     NHGIS code:  AQWX
+ 
+355. Allocation of Place of Work
+     Universe:    Workers 16 years and over
+     Source code: B99081
+     NHGIS code:  AQWY
+ 
+356. Allocation of Private Vehicle Occupancy
+     Universe:    Workers 16 years and over
+     Source code: B99082
+     NHGIS code:  AQWZ
+ 
+357. Allocation of Time of Departure to Go to Work
+     Universe:    Workers 16 years and over
+     Source code: B99083
+     NHGIS code:  AQW0
+ 
+358. Allocation of Travel Time to Work
+     Universe:    Workers 16 years and over
+     Source code: B99084
+     NHGIS code:  AQW1
+ 
+359. Allocation of Relationship
+     Universe:    Population in households
+     Source code: B99092
+     NHGIS code:  AQW2
+ 
+360. Allocation of Grandparents Living with Grandchildren Under 18 Years
+     Universe:    Population 30 years and over
+     Source code: B99102
+     NHGIS code:  AQW3
+ 
+361. Allocation of Grandparents Responsible for Grandchildren Under 18 Years
+     Universe:    Grandparents living with own grandchildren under 18 years
+     Source code: B99103
+     NHGIS code:  AQW4
+ 
+362. Allocation of Length of Time Grandparent Responsible for Own Grandchildren Under 18 Years for the Population 30 Years and Over
+     Universe:    Population 30 years and over
+     Source code: B99104
+     NHGIS code:  AQW5
+ 
+363. Allocation of Marital Status for the Population 15 Years and Over
+     Universe:    Population 15 years and over
+     Source code: B99121
+     NHGIS code:  AQW6
+ 
+364. Allocation of School Enrollment for the Population 3 Years and Over
+     Universe:    Population 3 years and over
+     Source code: B99141
+     NHGIS code:  AQW7
+ 
+365. Allocation of Grade Enrolled for the Population 3 Years and Over Enrolled in School
+     Universe:    Population 3 years and over enrolled in school
+     Source code: B99142
+     NHGIS code:  AQW8
+ 
+366. Allocation of Educational Attainment for the Population 25 Years and Over
+     Universe:    Population 25 years and over
+     Source code: B99151
+     NHGIS code:  AQW9
+ 
+367. Allocation of Field of Degree for the Population 25 Years and Over
+     Universe:    Population 25 years and over with a bachelor's degree or higher attainment
+     Source code: B99152
+     NHGIS code:  AQXA
+ 
+368. Allocation of Language Status for the Population 5 Years and Over
+     Universe:    Population 5 years and over
+     Source code: B99161
+     NHGIS code:  AQXB
+ 
+369. Allocation of Language Spoken at Home for the Population 5 Years and Over
+     Universe:    Population 5 years and over
+     Source code: B99162
+     NHGIS code:  AQXC
+ 
+370. Allocation of Ability to Speak English for the Population 5 Years and Over
+     Universe:    Population 5 years and over
+     Source code: B99163
+     NHGIS code:  AQXD
+ 
+371. Allocation of Poverty Status in the Past 12 Months for Unrelated Individuals
+     Universe:    Unrelated individuals 15 years and over for whom poverty status is determined
+     Source code: B99171
+     NHGIS code:  AQXE
+ 
+372. Allocation of Poverty Status in the Past 12 Months for Families
+     Universe:    Families
+     Source code: B99172
+     NHGIS code:  AQXF
+ 
+373. Allocation of Individuals' Income in the Past 12 Months for the Population 15 Years and Over - Percent of Income Allocated
+     Universe:    Population 15 years and over
+     Source code: B99191
+     NHGIS code:  AQXG
+ 
+374. Allocation of Household Income in the Past 12 Months - Percent of Income Allocated
+     Universe:    Households
+     Source code: B99192
+     NHGIS code:  AQXH
+ 
+375. Allocation of Family Income in the Past 12 Months -- Percent of Income Allocated
+     Universe:    Families
+     Source code: B99193
+     NHGIS code:  AQXI
+ 
+376. Allocation of Nonfamily Household Income in the Past 12 Months -- Percent of Income Allocated
+     Universe:    Nonfamily households
+     Source code: B99194
+     NHGIS code:  AQXJ
+ 
+377. Allocation of Earnings in the Past 12 Months for the Population 16 Years and Over - Percent of Earnings Allocated
+     Universe:    Population 16 years and over
+     Source code: B99201
+     NHGIS code:  AQXK
+ 
+378. Allocation of Veteran Status for the Population 18 Years and Over
+     Universe:    Population 18 years and over
+     Source code: B99211
+     NHGIS code:  AQXL
+ 
+379. Allocation of Period of Military Service for Civilian Veterans 18 Years and Over
+     Universe:    Civilian veterans 18 years and over
+     Source code: B99212
+     NHGIS code:  AQXM
+ 
+380. Allocation of Employment Status for the Population 16 Years and Over
+     Universe:    Population 16 years and over
+     Source code: B99231
+     NHGIS code:  AQXN
+ 
+381. Allocation of Work Status in the Past 12 Months for the Population 16 Years and Over
+     Universe:    Population 16 years and over
+     Source code: B99232
+     NHGIS code:  AQXO
+ 
+382. Allocation of Usual Hours Worked per Week in the Past 12 Months for the Population 16 Years and Over
+     Universe:    Population 16 years and over
+     Source code: B99233
+     NHGIS code:  AQXP
+ 
+383. Allocation of Weeks Worked in the Past 12 Months for the Population 16 Years and Over
+     Universe:    Population 16 years and over
+     Source code: B99234
+     NHGIS code:  AQXQ
+ 
+384. Allocation of Industry for the Civilian Employed Population 16 Years and Over
+     Universe:    Civilian employed population 16 years and over
+     Source code: B99241
+     NHGIS code:  AQXR
+ 
+385. Allocation of Occupation for the Civilian Employed Population 16 Years and Over
+     Universe:    Civilian employed population 16 years and over
+     Source code: B99242
+     NHGIS code:  AQXS
+ 
+386. Allocation of Class of Worker for the Civilian Employed Population 16 Years and Over
+     Universe:    Civilian employed population 16 years and over
+     Source code: B99243
+     NHGIS code:  AQXT
+ 
+387. Allocation of Kitchen Facilities
+     Universe:    Housing units
+     Source code: B992510
+     NHGIS code:  AQXU
+ 
+388. Allocation of House Heating Fuel
+     Universe:    Occupied housing units
+     Source code: B992511
+     NHGIS code:  AQXV
+ 
+389. Allocation of Vehicles Available
+     Universe:    Occupied housing units
+     Source code: B992512
+     NHGIS code:  AQXW
+ 
+390. Allocation of Telephone Service Available
+     Universe:    Occupied housing units
+     Source code: B992513
+     NHGIS code:  AQXX
+ 
+391. Allocation of Meals Included in Rent
+     Universe:    Renter-occupied housing units paying cash rent
+     Source code: B992514
+     NHGIS code:  AQXY
+ 
+392. Allocation of Contract Rent
+     Universe:    Renter-occupied housing units
+     Source code: B992515
+     NHGIS code:  AQXZ
+ 
+393. Allocation of Rent Asked
+     Universe:    Vacant-for-rent and rented, not occupied housing units
+     Source code: B992516
+     NHGIS code:  AQX0
+ 
+394. Allocation of Gross Rent
+     Universe:    Renter-occupied housing units
+     Source code: B992518
+     NHGIS code:  AQX1
+ 
+395. Allocation of Value
+     Universe:    Owner-occupied housing units
+     Source code: B992519
+     NHGIS code:  AQX2
+ 
+396. Allocation of Tenure
+     Universe:    Occupied housing units
+     Source code: B99252
+     NHGIS code:  AQX3
+ 
+397. Allocation of Price Asked
+     Universe:    Vacant-for-sale-only and sold, not occupied housing units
+     Source code: B992520
+     NHGIS code:  AQX4
+ 
+398. Allocation of Mortgage Status
+     Universe:    Owner-occupied housing units
+     Source code: B992521
+     NHGIS code:  AQX5
+ 
+399. Allocation of Mortgage Status and Selected Monthly Owner Costs
+     Universe:    Owner-occupied housing units
+     Source code: B992522
+     NHGIS code:  AQX6
+ 
+400. Allocation of Vacancy Status
+     Universe:    Vacant housing units
+     Source code: B99253
+     NHGIS code:  AQX7
+ 
+401. Allocation of Rooms
+     Universe:    Housing units
+     Source code: B99254
+     NHGIS code:  AQX8
+ 
+402. Allocation of Units in Structure
+     Universe:    Housing units
+     Source code: B99255
+     NHGIS code:  AQX9
+ 
+403. Allocation of Year Structure Built
+     Universe:    Housing units
+     Source code: B99256
+     NHGIS code:  AQYA
+ 
+404. Allocation of Year Householder Moved into Unit
+     Universe:    Occupied housing units
+     Source code: B99257
+     NHGIS code:  AQYB
+ 
+405. Allocation of Bedrooms
+     Universe:    Housing units
+     Source code: B99258
+     NHGIS code:  AQYC
+ 
+406. Allocation of Plumbing Facilities
+     Universe:    Housing units
+     Source code: B99259
+     NHGIS code:  AQYD
+ 
+407. Allocation of Household Internet Access
+     Universe:    Households
+     Source code: B99281
+     NHGIS code:  AQYE
+ 
+408. Allocation of Household Computer Type
+     Universe:    Households
+     Source code: B99282
+     NHGIS code:  AQYF
+ 
+409. Allocation of Household Internet Subscription Type
+     Universe:    Households
+     Source code: B99283
+     NHGIS code:  AQYG
