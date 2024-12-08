@@ -5,4 +5,4 @@ Utilizing singular value decomposition (SVD) with an automated selection criteri
 
 ![metrics](images/metrics.png)
 
-Note: This is an ongoing, active project. Taking a cue from other popular polling aggregate outcome predictors, it is intended as a proof of concept to show the development and deployment of an XGBoost classification model using Amazon Code Editor (Visual Studio Code-OSS) and Amazon Web Services (AWS) S3 buckets, EC2 instances, and SageMaker Pipelines. Stay tuned.
+Note: This is an ongoing, active project. Taking a cue from other popular polling aggregate outcome predictors, it is intended as a proof of concept to show the development and deployment of an XGBoost classification model using the Census API, Amazon Code Editor (Visual Studio Code-OSS), and Amazon Web Services (AWS) S3 buckets, EC2 instances, and SageMaker Pipelines. Stay tuned.
