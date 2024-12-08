@@ -400,8 +400,8 @@ poll['state_po'] = state_to_postal(poll)
 
 #%%
 # Get source and NHGIS code
-dict_cd116 = get_dict(os.path.relpath(f'nhgis0002_ds249_20205_cd116th_codebook.txt', start=start))
-dict_cd118 = get_dict(os.path.relpath(f'nhgis0001_ds262_20225_cd118th_codebook.txt', start=start))
+dict_cd116 = get_dict(os.path.relpath(f'cd116th_codebook.txt', start=start))
+dict_cd118 = get_dict(os.path.relpath(f'cd118th_codebook.txt', start=start))
 
 #%%
 # Rename columns
