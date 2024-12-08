@@ -2,6 +2,7 @@
 # Import libraries
 import os
 
+import numpy as np
 import pandas as pd
 
 from contextlib import contextmanager
@@ -370,12 +371,12 @@ X_test_cols = [col for col in X_test.columns if col not in context_fields]
 X_train = X_train[X_train_cols]
 X_test = X_test[X_test_cols]
 
-X_train = X_train.loc[:, (X_train >= 0).all()]
-X_test = X_test.loc[:, (X_test >= 0).all()]
+# X_train = X_train.loc[:, (X_train >= 0).all()]
+# X_test = X_test.loc[:, (X_test >= 0).all()]
 
 #%%
 # Keep common columns
-common_cols = list(set(X_train.columns) & set(X_test.columns))
+common_cols = sorted(list(set(X_train.columns) & set(X_test.columns)))
 
 X_train = X_train[common_cols].sort_index(axis=1)
 X_test = X_test[common_cols].sort_index(axis=1)
