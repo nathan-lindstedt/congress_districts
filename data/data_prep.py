@@ -161,7 +161,7 @@ def get_nhgis(line: str) -> str:
 
     return nhgis_code
 
-def census_data_api(dict_values: list, year: int, output_path: str) -> None:
+def census_data_api(acs_tables: list, year: int, output_path: str) -> None:
     """
     Writes data from Census API to a file in CSV format.
 
@@ -181,15 +181,14 @@ def census_data_api(dict_values: list, year: int, output_path: str) -> None:
     c.acs5.tables(year=year)
     acs_dict = c.acs5.fields(year=year)
 
-    acs_variables = [key for key, value in acs_dict.items() if value['group'] in dict_values]
-    acs_variables += [attr for _, value in acs_dict.items() if value['group'] in dict_values for attr in value['attributes'].split(',') if 'A' not in attr]
+    acs_variables = [key for key, value in acs_dict.items() if value['group'] in acs_tables]
+    acs_variables += [attr for _, value in acs_dict.items() if value['group'] in acs_tables for attr in value['attributes'].split(',') if 'A' not in attr]
 
-    # Experimental: This isn't working as expected and needs further development and testing.
-    # Per the Census library documentation, the get() method needs to use chunking for API requests
-    # larger than 50 variables matched on GEO_ID. This is a work in progress. The data doesn't seem
-    # to be correct when compared to the NHGIS data.
+    # Experimental: This may not work as expected under all API calls and needs further development 
+    # and testing. Per the Census library documentation, the get() method needs to use chunking for 
+    # API calls larger than 50 variables and matched on GEO_ID. This is a work in progress.
     with outgoing(output_path) as outfile:
-        data = c.acs5.get(acs_variables, geo={'for': 'congressional district:*', 'in': 'state:*'})
+        data = c.acs5.get(acs_variables, year=year, geo={'for': 'congressional district:*', 'in': 'state:*'})
 
         if data:
             columns = list(data[0].keys())
@@ -447,19 +446,19 @@ def generate_feature_importance(common_cols: List, model_svd: TruncatedSVD) -> p
 
 
 #%%
-# Note: This process can take > 30 mins. per file to complete and requires a Census API key to be stored 
-# in a text file named 'api_key.txt' located in the local 'data' directory.
+# Notes: This process can take > 30 mins. per dataset to complete and requires a Census API key 
+# (https://api.census.gov/data/key_signup.html) to be stored in a text file named 'api_key.txt'
+# located in the local 'data' directory.
 
 # Get Census API data if not already downloaded
+acs_tables_df = pd.read_csv(os.path.relpath(f'../data/acs_tables.csv', start=start))
+acs_tables = acs_tables_df['ACS_Tables'].tolist()
+
 if not Path(os.path.relpath(f'../data/census_data_2020.csv', start=start)).exists():
-    dict_cd116 = get_dict(os.path.relpath(f'../data/cd116th_codebook.txt', start=start))
-    dict_cd116_values = list(dict_cd116.values())
-    census_data_api(dict_cd116_values, 2020, os.path.relpath(f'../data/census_data_2020.csv', start=start))
+    census_data_api(acs_tables, 2020, os.path.relpath(f'../data/census_data_2020.csv', start=start))
 
 if not Path(os.path.relpath(f'../data/census_data_2022.csv', start=start)).exists():
-    dict_cd118 = get_dict(os.path.relpath(f'../data/cd118th_codebook.txt', start=start))
-    dict_cd118_values = list(dict_cd118.values())
-    census_data_api(dict_cd118_values, 2022, os.path.relpath(f'../data/census_data_2022.csv', start=start))
+    census_data_api(acs_tables, 2022, os.path.relpath(f'../data/census_data_2022.csv', start=start))
 
 #%%
 # Load the data
