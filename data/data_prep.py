@@ -368,8 +368,8 @@ X_test_cols = [col for col in X_test.columns if col not in context_fields]
 X_train = X_train[X_train_cols]
 X_test = X_test[X_test_cols]
 
-# X_train = X_train.loc[:, (X_train >= 0).all()]
-# X_test = X_test.loc[:, (X_test >= 0).all()]
+X_train = X_train.loc[:, (X_train >= 0).all()]
+X_test = X_test.loc[:, (X_test >= 0).all()]
 
 #%%
 # Keep common columns
