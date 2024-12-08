@@ -177,7 +177,10 @@ def rename_df_columns(df: pd.DataFrame, dict_cd: Dict) -> tuple:
     for index, data in enumerate(column_list):
         for key, value in dict_cd.items():
             if key in data:
-                column_list[index] = data.replace(key, value)
+                column_list[index] = data.replace(key, value + '_')
+                underscore_index = column_list[index].find('_')
+                if underscore_index != -1 and underscore_index + 1 < len(column_list[index]):
+                    column_list[index] = column_list[index][:underscore_index + 1] + column_list[index][underscore_index + 2:] + column_list[index][underscore_index + 1]
                 rename_list.append(column_list[index])
 
     return rename_list, df.set_axis(column_list, axis=1).dropna(axis=1)
@@ -411,6 +414,7 @@ X_test_gisjoin = pd.DataFrame(X_test['GISJOIN'])
 X_train_cols = [col for col in X_train.columns if col not in context_fields]
 X_test_cols = [col for col in X_test.columns if col not in context_fields]
 
+#%%
 X_train_rename, X_train = rename_df_columns(X_train[X_train_cols], dict_cd116)
 X_test_rename, X_test = rename_df_columns(X_test[X_test_cols], dict_cd118)
 
@@ -418,8 +422,8 @@ X_test_rename, X_test = rename_df_columns(X_test[X_test_cols], dict_cd118)
 # Keep common columns
 common_cols = list(set(X_train.columns) & set(X_test.columns))
 
-X_train = X_train[common_cols]
-X_test = X_test[common_cols]
+X_train = X_train[common_cols].sort_index(axis=1)
+X_test = X_test[common_cols].sort_index(axis=1)
 
 #%%
 # Truncated SVD w/ component selection for dimensionality reduction and feature contribution
