@@ -7,7 +7,7 @@ Utilizing singular value decomposition (SVD) with an automated selection criteri
 
 Included in this project are three main component files: **data_prep.py**, **development.py**, and **pipeline.py**
 
-The script **data_prep.py** retrieves the ACS variables using the Census API, prepares the datasets, performs the SVD, and determines the top feature contributions in the calculated components. It requires a registered Census API key (see: https://api.census.gov/data/key_signup.html). 
+The script **data_prep.py** extracts the ACS variables from the NHGIS data, prepares the datasets, performs the SVD, and determines the top feature contributions in the calculated components.
 
 The script **development.py** is for local development and allows the user to run the XGBoost model and metrics without the need for an AWS account.
 
