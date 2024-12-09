@@ -110,9 +110,6 @@ def census_data_api(acs_tables: list, year: int, output_path: str) -> None:
     acs_variables = [key for key, value in acs_dict.items() if value['group'] in acs_tables]
     acs_variables += [attr for _, value in acs_dict.items() if value['group'] in acs_tables for attr in value['attributes'].split(',') if 'A' not in attr]
 
-    # Experimental: This may not work as expected under all API calls and needs further development 
-    # and testing. Per the Census library documentation, the get() method needs to use chunking for 
-    # API calls larger than 50 variables and matched on GEO_ID. This is a work in progress.
     with outgoing(output_path) as outfile:
         data = c.acs5.get(acs_variables, year=year, geo={'for': 'congressional district:*', 'in': 'state:*'})
 
