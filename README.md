@@ -5,4 +5,12 @@ Utilizing singular value decomposition (SVD) with an automated selection criteri
 
 ![metrics](images/metrics.png)
 
+Included in this project are three main component files: **data_prep.py**, **development.py**, and **pipeline.py**
+
+The script **data_prep.py** retrieves the ACS variables using the Census API, prepares the datasets, performs the SVD, and determines the top feature contributions in the calculated components. It requires a registered Census API key (see: https://api.census.gov/data/key_signup.html). 
+
+The script **development.py** is for local development and allows the user to run the XGBoost model and metrics without the need for an AWS account.
+
+The script **pipeline.py** is the main driver of a SageMaker Pipelines machine learning operations (MLOps) environment and requires an AWS account.
+
 Note: This is an ongoing, active project. Taking a cue from other popular polling aggregate outcome predictors, it is intended as a proof of concept to show the development and deployment of an XGBoost classification model using Amazon Code Editor (Visual Studio Code-OSS) and Amazon Web Services (AWS) S3 buckets, EC2 instances, and SageMaker Pipelines. Stay tuned.
