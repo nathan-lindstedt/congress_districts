@@ -99,7 +99,7 @@ print(f'Shape of model two test labels after preprocessing: {model_two_y_test.sh
 
 #%%
 # Train the models with hyperparameter tuning
-min_child_weight: int = 7
+min_child_weight: int = 6
 max_bin: int = 48
 num_parallel_tree: int = 96
 subsample: float = 0.8
